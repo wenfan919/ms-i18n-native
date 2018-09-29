@@ -15,7 +15,7 @@
       <module name="i18n-api" target="1.7" />
       <module name="i18n-provider" target="1.7" />
       <module name="i18n-server" target="1.7" />
-      <module name="ms-examples" target="1.7" />
+      <module name="ms-i18n" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

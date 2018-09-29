@@ -5,7 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/i18n-api/i18n-api.iml" filepath="$PROJECT_DIR$/i18n-api/i18n-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/i18n-provider/i18n-provider.iml" filepath="$PROJECT_DIR$/i18n-provider/i18n-provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/i18n-server/i18n-server.iml" filepath="$PROJECT_DIR$/i18n-server/i18n-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ms-examples.iml" filepath="$PROJECT_DIR$/ms-examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-i18n.iml" filepath="$PROJECT_DIR$/ms-i18n.iml" />
     </modules>
   </component>
 </project>
