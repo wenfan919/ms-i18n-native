@@ -29,20 +29,6 @@ public interface II18nService {
     public @ApiReturnValue(name = "执行状态", description = "国际化工具执行状态")
     Boolean operation(@ApiParam(name = "执行的行ID", required = true, description = "需要国际化工具处理的项目所在行的主键", exampleValue = "482c5b633aea4a46aa0cd1fd0a62cc27") String id) throws Exception;
 
-
-    /**
-     * provider -> server
-     * 国际化工具执行
-     * 异步调用，该部分执行时间较长。
-     *
-     * @param sourcePath /iuap/i18ntools/images/***.zip
-     * @return 返回路径
-     */
-    @Async
-    @ApiOperation("根据路径执行国际化工具")
-    public @ApiReturnValue(name = "返回路径", description = "国际化工具执行完成后的回写路径")
-    String operateTools(@ApiParam(name = "原始路径", required = true, description = "需要国际化工具处理的项目的完整路径，最好是服务器本地路径", exampleValue = "/iuap/i18ntools/images/***.zip") String sourcePath) throws Exception;
 }
-
 
 
