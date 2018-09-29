@@ -1,0 +1,167 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.yonyou.cloud.ms</groupId>
+		<artifactId>ms-examples</artifactId>
+		<version>5.0.0-RELEASE</version>
+	</parent>
+	<artifactId>i18n-provider</artifactId>
+	<packaging>war</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.yonyou.cloud.ms</groupId>
+			<artifactId>i18n-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<!-- RPC -->
+		<dependency>
+			<groupId>com.yonyou.cloud.middleware</groupId>
+			<artifactId>mwclient</artifactId>
+			<version>${mw.version}</version>
+			<type>pom</type>
+		</dependency>
+		
+		<!-- eos begin -->
+		<!-- 
+		<dependency>
+			<groupId>com.yonyou.cloud.middleware</groupId>
+			<artifactId>eos-spring-support</artifactId>
+			<version>${mw.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.yonyou.cloud</groupId>
+			<artifactId>auth-sdk-client</artifactId>
+			<version>${auth-sdk-client.version}</version>
+		</dependency>
+		-->
+		<!-- eos end -->
+		
+		<!-- iuap context support -->
+		<!--  
+		<dependency>
+			<groupId>com.yonyou.iuap</groupId>
+			<artifactId>iuap-generic</artifactId>
+			<version>${iuap.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.yonyou.cloud.middleware</groupId>
+			<artifactId>iris-iuap-support</artifactId>
+			<version>${mw.version}</version>
+		</dependency>
+		-->
+		
+		<!-- DB、JDBC -->
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jdbc</artifactId>
+			<version>${tomcat-jdbc.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- commons -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+		  	<groupId>commons-io</groupId>
+		  	<artifactId>commons-io</artifactId>
+		  	<version>${commons-io.version}</version>
+		</dependency>
+		<dependency>
+	        <groupId>org.apache.commons</groupId>
+	        <artifactId>commons-lang3</artifactId>
+	        <version>${commons-lang3.version}</version>
+	    </dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		
+		<!-- mvc、servlets -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.aggregate</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>${jetty.version}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-jsp</artifactId>
+			<version>${jetty.version}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<!-- 插件配置 -->
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty.version}</version>
+				<configuration>
+					<contextXml>${project.basedir}/src/test/resources/jetty-context.xml</contextXml>
+					<webAppConfig>
+						<contextPath>/${project.artifactId}</contextPath>
+						<defaultsDescriptor>${project.basedir}/src/test/resources/webdefault.xml</defaultsDescriptor>
+					</webAppConfig>
+					<connectors>
+						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+							<port>8081</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+					<stopPort>9091</stopPort>
+					<stopKey>shutdown</stopKey>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
