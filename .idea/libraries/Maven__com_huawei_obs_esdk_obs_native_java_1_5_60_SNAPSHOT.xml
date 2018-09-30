@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.huawei.obs:esdk-obs-native-java:1.5.60-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/huawei/obs/esdk-obs-native-java/1.5.60-SNAPSHOT/esdk-obs-native-java-1.5.60-20170306.122730-1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/huawei/obs/esdk-obs-native-java/1.5.60-SNAPSHOT/esdk-obs-native-java-1.5.60-20170306.122730-1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/huawei/obs/esdk-obs-native-java/1.5.60-SNAPSHOT/esdk-obs-native-java-1.5.60-20170306.122730-1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

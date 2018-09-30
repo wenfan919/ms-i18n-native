@@ -33,8 +33,11 @@
 
     <modules>
         <module>i18n-api</module>
-        <module>i18n-server</module>
+
         <module>i18n-provider</module>
+
+        <module>i18n-server</module>
+
     </modules>
     
     <repositories>

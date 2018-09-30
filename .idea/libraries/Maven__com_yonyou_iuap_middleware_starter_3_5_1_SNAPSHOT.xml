@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.yonyou.iuap.middleware:starter:3.5.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/yonyou/iuap/middleware/starter/3.5.1-SNAPSHOT/starter-3.5.1-20180813.124121-1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/yonyou/iuap/middleware/starter/3.5.1-SNAPSHOT/starter-3.5.1-20180813.124121-1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/yonyou/iuap/middleware/starter/3.5.1-SNAPSHOT/starter-3.5.1-20180813.124121-1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

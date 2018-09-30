@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.yonyou.iuap:iuap-licenseclient:3.2.3-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/yonyou/iuap/iuap-licenseclient/3.2.3-SNAPSHOT/iuap-licenseclient-3.2.3-20180710.032629-4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/yonyou/iuap/iuap-licenseclient/3.2.3-SNAPSHOT/iuap-licenseclient-3.2.3-20180710.032629-4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/yonyou/iuap/iuap-licenseclient/3.2.3-SNAPSHOT/iuap-licenseclient-3.2.3-20180710.032629-4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

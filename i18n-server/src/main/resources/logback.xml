@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true">
-    <property name="log.base" value="/Users/yanyong/temp/logs/ms/rpc-server"/>
+    <property name="log.base" value="/Users/yanyong/temp/logs/i18n/i18n-server"/>
     
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
