@@ -21,7 +21,8 @@
 	    <constructor-arg value="${remote.server.providerid}"></constructor-arg>
 	    <constructor-arg>
 	    	<list>
-	        	<value>com.yonyou.cloud.i18n.service.IChartTypeService</value>
+	        	<value>com.yonyou.cloud.i18n.service.II18nService</value>
+				<value>com.yonyou.cloud.i18n.service.II18nToolsService</value>
 	        </list>
 	    </constructor-arg>
 	</bean>

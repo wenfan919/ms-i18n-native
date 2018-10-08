@@ -85,7 +85,13 @@ public class FilesUtils {
         //返回集合变量
         return nums;
     }
-    
+
+	public static void moveFolder(String src, String dest) {
+		File srcFolder = new File(src);
+		File destFolder = new File(dest);
+		File newFile = new File(destFolder.getAbsoluteFile() + File.separator + srcFolder.getName());
+		srcFolder.renameTo(newFile);
+	}
 	
 	public static void main(String[] args){
 		

@@ -1,6 +1,6 @@
 server:
   # 本地调试时使用
-  port: 8083    
+  port: 9081
   context-path: /i18n-server
 spring: 
   application:

@@ -1,9 +1,12 @@
 package com.yonyou.cloud.i18n.service;
 
 import com.yonyou.i18n.main.StepBy;
+import com.yonyou.i18n.utils.ZipUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
+import java.io.File;
 
 /**
  * spring-boot工程示例，服务具体实现，统计功能
@@ -14,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class I18nToolsService implements II18nToolsService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(I18nToolsService.class);
+    private static final Logger logger = LoggerFactory.getLogger(I18nToolsService.class);
 
 
     /**
@@ -45,9 +48,21 @@ public class I18nToolsService implements II18nToolsService {
     @Override
     public String operateTools(String sourcePath) throws Exception {
 
+        logger.info("识别文件：" + sourcePath);
+
+        String path = sourcePath.substring(0, sourcePath.indexOf(".")) + "_" + System.currentTimeMillis();
+
+        String zipFile = path + ".zip";
+
+        path = path + "/";
+
+        logger.info("解压缩路径：" + path);
+
+        ZipUtils.unZipForFilePath(sourcePath, path);
+
         StepBy sb = new StepBy();
 
-        sb.init();
+        sb.init(path);
 
         sb.extract();
 
@@ -55,7 +70,11 @@ public class I18nToolsService implements II18nToolsService {
 
         sb.replace();
 
+        ZipUtils.zip(new File(zipFile), path);
 
-        return sourcePath;
+
+        logger.info("执行完成后压缩路径：" + zipFile);
+
+        return zipFile;
     }
 }

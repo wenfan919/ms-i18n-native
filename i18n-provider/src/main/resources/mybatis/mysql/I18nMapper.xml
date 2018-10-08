@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yonyou.cloud.i18n.dao.TI18nMapper">
+<mapper namespace="com.yonyou.cloud.i18n.dao.I18nMapper">
 
     <resultMap id="BaseResultMap" type="com.yonyou.cloud.i18n.entity.I18n">
         <id column="id" jdbcType="VARCHAR" property="id"/>

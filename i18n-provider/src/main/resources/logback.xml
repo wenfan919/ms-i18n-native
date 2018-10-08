@@ -52,6 +52,17 @@
 		</triggeringPolicy>
 	</appender>
 
+	<appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.base}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.base}.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%X{X-traceId}] %X{X-sysId} %X{X-userId} [%X{current_app_id}] [%X{current_provider_id}] [%X{current_tenant_id}] [%X{current_user_name}] [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
 	<!-- 异步输出 -->
 	<appender name ="ASYNC" class= "ch.qos.logback.classic.AsyncAppender">
 		<!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、ERROR、INFO级别的日志 -->
@@ -72,9 +83,9 @@
 	<logger name="java.sql" level="debug" />-->
 	<logger name="com.yonyou.iuap" level="debug" />
 
-	<root level="info">
+	<root level="INFO">
 		<appender-ref ref="console" />
-		<appender-ref ref="File" />
+		<appender-ref ref="rollingFile" />
 	</root>
 
 

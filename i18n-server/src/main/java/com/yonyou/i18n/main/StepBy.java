@@ -31,16 +31,16 @@ public class StepBy {
 	 * 
 	 * 加载所有文件
 	 */
-	public void init(){
+	public void init(String path){
 		
-		this.pageNodes = (new ScanAllFiles()).loadNodes();
+		this.pageNodes = (new ScanAllFiles(path)).loadNodes();
 		
 	}
 	
 	/**
 	 * 通过字符集范围进行抽取
 	 * 
-	 * @param args
+	 * @param
 	 */
 	public  void extract() {
 
@@ -64,7 +64,7 @@ public class StepBy {
 	
 	/**
 	 * 直接替换
-	 * @param args
+	 * @param
 	 */
 	public  void replace() {
 

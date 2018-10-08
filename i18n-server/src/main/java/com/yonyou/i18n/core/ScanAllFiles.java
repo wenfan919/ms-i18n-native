@@ -30,6 +30,14 @@ public class ScanAllFiles {
 	static String scanFileType = ConfigUtils.getPropertyValue("scanFileType");
 	static String defaultProject = ConfigUtils.getPropertyValue("defaultProject");
 	static String resourcePrefix = ConfigUtils.getPropertyValue("resourcePrefix");
+
+	public ScanAllFiles(String path){
+
+		if(path != null && !"".equals(path)){
+			this.parseProjectPath = path;
+			ConfigUtils.props.setProperty("parseProjectPath", path);
+		}
+	}
 			
 	/**
 	 * 加载定义的所有类型文件

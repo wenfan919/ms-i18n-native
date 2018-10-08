@@ -26,7 +26,7 @@ public class ResourceFileUtil {
 	
 	private ArrayList<File> files = new ArrayList<File>(0);
 	
-	private StringBuilder fileContent = new StringBuilder();
+	private StringBuilder fileContent = new StringBuilder("");
 	
 //	private Map<String, String> fileDescs = new HashMap<String, String>(0);
 

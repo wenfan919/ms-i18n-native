@@ -5,6 +5,6 @@ import com.yonyou.iuap.mybatis.anotation.MyBatisRepository;
 
 
 @MyBatisRepository
-public interface TI18nMapper extends GenericExMapper<I18n> {
+public interface I18nMapper extends GenericExMapper<I18n> {
 }
 

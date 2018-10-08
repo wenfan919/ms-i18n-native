@@ -1,7 +1,11 @@
 package com.yonyou.cloud.i18n.controller;
 
-import com.yonyou.iuap.mvc.constants.RequestStatusEnum;
-import com.yonyou.iuap.mvc.type.JsonResponse;
+import com.yonyou.cloud.i18n.entity.I18n;
+import com.yonyou.cloud.i18n.service.I18nToolsService;
+import com.yonyou.cloud.i18n.service.I18nService;
+import com.yonyou.iuap.baseservice.controller.GenericController;
+import com.yonyou.iuap.mvc.annotation.FrontModelExchange;
+import com.yonyou.iuap.mvc.type.SearchParams;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +14,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.yonyou.iuap.baseservice.controller.GenericController;
-import com.yonyou.cloud.i18n.entity.I18n;
-import com.yonyou.cloud.i18n.service.TI18nService;
-import com.yonyou.iuap.mvc.annotation.FrontModelExchange;
-import com.yonyou.iuap.mvc.type.SearchParams;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,44 +33,37 @@ public class I18nController extends GenericController<I18n> {
 
     private Logger logger = LoggerFactory.getLogger(I18nController.class);
 
-//    public TI18nService gettI18nService() {
-//        return tI18nService;
+    private I18nService i18nService;
+
+    @Autowired
+    public void settI18nService(I18nService i18nService) {
+        this.i18nService = i18nService;
+        super.setService(i18nService);
+    }
+
+    private I18nToolsService i18nServiceImpl;
+
+//    public I18nServiceImpl getI18nServiceImpl() {
+//        return i18nServiceImpl;
 //    }
 
     @Autowired
-    public void settI18nService(TI18nService tI18nService) {
-        this.tI18nService = tI18nService;
-        super.setService(tI18nService);
+    public void setI18nServiceImpl(I18nToolsService i18nServiceImpl) {
+        this.i18nServiceImpl = i18nServiceImpl;
     }
-
-
-    private TI18nService tI18nService;
-
-//    public void setTI18nService(TI18nService i18nService) {
-//        this.tI18nService = i18nService;
-//        super.setService(i18nService);
-//    }
 
     @Override
     public Object list(PageRequest pageRequest,
                        @FrontModelExchange(modelType = I18n.class) SearchParams searchParams) {
 
-        Page<I18n> page = this.tI18nService.selectAllByPage(pageRequest, searchParams);
+        Page<I18n> page = this.i18nService.selectAllByPage(pageRequest, searchParams);
 
-//        List<I18n> list = page.getContent();
-//        for(I18n i18n : list){
-//            i18n.setAttachId(i18n.getAttachment().get(0).getOriginalFileName());
-//        }
         Map<String, Object> map = new HashMap();
         map.put("data", page);
         return this.buildMapSuccess(map);
 
-//        return super.list(pageRequest, searchParams);
     }
 
-
-    //    @RequestMapping({"/save"})
-//    @ResponseBody
     @Override
     public Object save(@RequestBody I18n entity) {
 //        JsonResponse jsonResp;
@@ -116,7 +107,25 @@ public class I18nController extends GenericController<I18n> {
     @ResponseBody
     public Object operation(@RequestBody List<I18n> listData, HttpServletRequest request, HttpServletResponse response) {
 
-        System.out.println("++++++++++");
+        long s = System.currentTimeMillis();
+        logger.info("项目工程执行开始时间：" + s);
+
+        try {
+
+            I18n i18n = this.i18nService.findById(listData.get(0).getId());
+
+            String zipFile = this.i18nServiceImpl.operation(i18n.getAttachment().get(0).getAccessAddress());
+
+            i18n.setAttachId(zipFile);
+
+            this.i18nService.save(i18n);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        long e = System.currentTimeMillis();
+        logger.info("项目工程执行结束时间：" + e + " , 共耗时： " + (e-s)/1000);
         return super.buildSuccess();
     }
 
