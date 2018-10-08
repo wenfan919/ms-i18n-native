@@ -1,10 +1,5 @@
 package com.yonyou.i18n.utils;
 
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -35,7 +30,7 @@ public class FileUtil {
             File[] files = directory.listFiles();
             String[] temp = new String[files.length];
 
-            for(int i = 0; i < files.length; ++i) {
+            for (int i = 0; i < files.length; ++i) {
                 if (files[i].isDirectory() == isDirectory) {
                     temp[count] = files[i].getName();
                     ++count;
@@ -117,7 +112,7 @@ public class FileUtil {
                 FileInputStream fileinputstream = new FileInputStream(source);
 
                 int i;
-                while((i = fileinputstream.read(abyte0)) != -1) {
+                while ((i = fileinputstream.read(abyte0)) != -1) {
                     fileoutputstream.write(abyte0, 0, i);
                 }
 
@@ -151,7 +146,7 @@ public class FileUtil {
         String text = "";
         StringBuffer sb = new StringBuffer();
 
-        while((text = br.readLine()) != null) {
+        while ((text = br.readLine()) != null) {
             sb.append(text + "\n");
         }
 
@@ -169,7 +164,7 @@ public class FileUtil {
         if (f.isDirectory() && isdepth) {
             File[] t = f.listFiles();
 
-            for(begIndex = 0; begIndex < t.length; ++begIndex) {
+            for (begIndex = 0; begIndex < t.length; ++begIndex) {
                 listFile(t[begIndex], fileList, suffix, isdepth);
             }
         } else {
@@ -204,7 +199,7 @@ public class FileUtil {
                 String[] tempList = file.list();
                 File temp = null;
 
-                for(int i = 0; i < tempList.length; ++i) {
+                for (int i = 0; i < tempList.length; ++i) {
                     if (path.endsWith(File.separator)) {
                         temp = new File(path + tempList[i]);
                     } else {
@@ -238,7 +233,7 @@ public class FileUtil {
         String[] file = a.list();
         File temp = null;
 
-        for(int i = 0; i < file.length; ++i) {
+        for (int i = 0; i < file.length; ++i) {
             if (oldPath.endsWith(File.separator)) {
                 temp = new File(oldPath + file[i]);
             } else {
@@ -251,7 +246,7 @@ public class FileUtil {
                 byte[] b = new byte[5120];
 
                 int len;
-                while((len = input.read(b)) != -1) {
+                while ((len = input.read(b)) != -1) {
                     output.write(b, 0, len);
                 }
 

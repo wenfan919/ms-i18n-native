@@ -1,11 +1,5 @@
 package com.yonyou.i18n.utils;
 
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
-
 import org.apache.log4j.Logger;
 import org.apache.tools.zip.ZipEntry;
 import org.apache.tools.zip.ZipFile;
@@ -89,7 +83,7 @@ public class ZipUtils {
             out.putNextEntry(new ZipEntry(base + "/"));
             base = base.length() == 0 ? "" : base + "/";
 
-            for(i = 0; i < fl.length; ++i) {
+            for (i = 0; i < fl.length; ++i) {
                 zip(out, fl[i], base + fl[i].getName());
             }
         } else {
@@ -97,7 +91,7 @@ public class ZipUtils {
             FileInputStream in = new FileInputStream(f);
             byte[] buf = new byte[1024];
 
-            while((i = in.read(buf, 0, 1024)) != -1) {
+            while ((i = in.read(buf, 0, 1024)) != -1) {
                 out.write(buf, 0, i);
             }
 
@@ -116,9 +110,9 @@ public class ZipUtils {
             zipFile = new ZipFile(fileName, "GBK");
             Enumeration emu = zipFile.getEntries();
 
-            while(true) {
-                while(emu.hasMoreElements()) {
-                    ZipEntry entry = (ZipEntry)emu.nextElement();
+            while (true) {
+                while (emu.hasMoreElements()) {
+                    ZipEntry entry = (ZipEntry) emu.nextElement();
                     if (entry.isDirectory()) {
                         (new File(filePath + entry.getName())).mkdirs();
                     } else {
@@ -135,7 +129,7 @@ public class ZipUtils {
                         boolean var11 = false;
 
                         int len;
-                        while((len = bis.read(buf, 0, 1024)) != -1) {
+                        while ((len = bis.read(buf, 0, 1024)) != -1) {
                             fos.write(buf, 0, len);
                         }
                     }
@@ -175,7 +169,7 @@ public class ZipUtils {
                     out.putNextEntry(new ZipEntry(base));
                 }
 
-                for(int i = 0; i < files.length; ++i) {
+                for (int i = 0; i < files.length; ++i) {
                     zip(out, files[i], base + files[i].getName(), filter);
                 }
             } else if (isExist(base, filter)) {
@@ -187,7 +181,7 @@ public class ZipUtils {
                 byte[] b = new byte[1024];
 
                 int length;
-                while((length = in.read(b, 0, 1024)) != -1) {
+                while ((length = in.read(b, 0, 1024)) != -1) {
                     out.write(b, 0, length);
                 }
 
@@ -199,8 +193,8 @@ public class ZipUtils {
 
     public static boolean isExist(String base, List list) {
         if (list != null && !list.isEmpty()) {
-            for(int i = 0; i < list.size(); ++i) {
-                if (base.indexOf((String)list.get(i)) >= 0) {
+            for (int i = 0; i < list.size(); ++i) {
+                if (base.indexOf((String) list.get(i)) >= 0) {
                     return true;
                 }
             }
@@ -217,9 +211,9 @@ public class ZipUtils {
             ZipFile zipFile = new ZipFile(file);
             Enumeration e = zipFile.getEntries();
 
-            while(true) {
-                while(e.hasMoreElements()) {
-                    ZipEntry zipEntry = (ZipEntry)e.nextElement();
+            while (true) {
+                while (e.hasMoreElements()) {
+                    ZipEntry zipEntry = (ZipEntry) e.nextElement();
                     if (zipEntry.isDirectory()) {
                         String name = zipEntry.getName();
                         name = name.substring(0, name.length() - 1);
@@ -234,7 +228,7 @@ public class ZipUtils {
                         byte[] b = new byte[1024];
 
                         int length;
-                        while((length = is.read(b, 0, 1024)) != -1) {
+                        while ((length = is.read(b, 0, 1024)) != -1) {
                             fos.write(b, 0, length);
                         }
 
@@ -263,8 +257,8 @@ public class ZipUtils {
             ZipFile zipFile = new ZipFile(srcFile);
             Enumeration e = zipFile.getEntries();
 
-            while(e.hasMoreElements()) {
-                ZipEntry ze = (ZipEntry)e.nextElement();
+            while (e.hasMoreElements()) {
+                ZipEntry ze = (ZipEntry) e.nextElement();
                 comment = ze.getComment();
                 if (comment != null && !comment.equals("") && !comment.equals("null")) {
                     break;
@@ -280,7 +274,6 @@ public class ZipUtils {
     }
 
     /**
-     *
      * @param fileName
      * @param filePath
      * @throws Exception
@@ -295,21 +288,21 @@ public class ZipUtils {
             zipFile = new ZipFile(fileName, "UTF-8");
             Enumeration emu = zipFile.getEntries();
 
-            while(true) {
+            while (true) {
                 ZipEntry entry;
                 do {
                     if (!emu.hasMoreElements()) {
                         return;
                     }
 
-                    entry = (ZipEntry)emu.nextElement();
-                } while(entry.isDirectory());
+                    entry = (ZipEntry) emu.nextElement();
+                } while (entry.isDirectory());
 
                 StringBuffer sv = new StringBuffer();
                 if (entry.getName().indexOf("/") != -1) {
                     String[] str = entry.getName().split("/");
 
-                    for(int i = 0; i < str.length; ++i) {
+                    for (int i = 0; i < str.length; ++i) {
                         if (i != str.length - 1) {
                             sv.append(str[i] + File.separator);
                         } else {
@@ -333,7 +326,7 @@ public class ZipUtils {
                 boolean var12 = false;
 
                 int len;
-                while((len = bis.read(buf, 0, 1024)) != -1) {
+                while ((len = bis.read(buf, 0, 1024)) != -1) {
                     fos.write(buf, 0, len);
                 }
             }
@@ -372,17 +365,17 @@ public class ZipUtils {
         if (f.isDirectory()) {
             File[] fl = f.listFiles();
 
-            for(int i = 0; i < fl.length; ++i) {
+            for (int i = 0; i < fl.length; ++i) {
                 File file = fl[i];
 
-                for(int j = 0; j < fileNames.length; ++j) {
+                for (int j = 0; j < fileNames.length; ++j) {
                     if (fileNames[j].equals(file.getName())) {
                         out.putNextEntry(new ZipEntry(file.getName()));
                         FileInputStream in = new FileInputStream(file);
                         byte[] buf = new byte[1024];
 
                         int len;
-                        while((len = in.read(buf, 0, 1024)) != -1) {
+                        while ((len = in.read(buf, 0, 1024)) != -1) {
                             out.write(buf, 0, len);
                         }
 
@@ -398,11 +391,11 @@ public class ZipUtils {
         File files = new File(path);
         File[] flieList = files.listFiles();
 
-        for(int i = 0; i < flieList.length; ++i) {
+        for (int i = 0; i < flieList.length; ++i) {
             String fileName = flieList[i].getName();
             String filePath = flieList[i].getPath();
 
-            for(int j = 0; j < fileNames.length; ++j) {
+            for (int j = 0; j < fileNames.length; ++j) {
                 if (fileName.equals(fileNames[j])) {
                     FileUtil.delete(filePath);
                 }
@@ -412,12 +405,11 @@ public class ZipUtils {
     }
 
 
-
     public static boolean fileIsExist(String path, String fileName) {
         boolean isExist = false;
         String[] fileList = FileUtil.listFiles(path);
         if (fileList != null && fileList.length > 0) {
-            for(int i = 0; i < fileList.length; ++i) {
+            for (int i = 0; i < fileList.length; ++i) {
                 if (fileName.equals(fileList[i])) {
                     isExist = true;
                 }
@@ -434,8 +426,8 @@ public class ZipUtils {
             zipFile = new ZipFile(zipFilePath, "GBK");
             Enumeration emu = zipFile.getEntries();
 
-            while(emu.hasMoreElements()) {
-                ZipEntry entry = (ZipEntry)emu.nextElement();
+            while (emu.hasMoreElements()) {
+                ZipEntry entry = (ZipEntry) emu.nextElement();
                 if (entry.getName().indexOf(fileName) > -1) {
                     return true;
                 }
