@@ -3,13 +3,13 @@
  */
 package com.yonyou.i18n.main;
 
-import java.util.List;
-
 import com.yonyou.i18n.core.ExtractChar;
 import com.yonyou.i18n.core.ReplaceFile;
 import com.yonyou.i18n.core.ResourcesFile;
 import com.yonyou.i18n.core.ScanAllFiles;
 import com.yonyou.i18n.model.PageNode;
+
+import java.util.List;
 
 /**
  * 
@@ -73,7 +73,38 @@ public class StepBy {
 	}
 	
 
-	
+	public static void main(String [] args){
+
+
+
+
+//		logger.info("识别文件：" + sourcePath);
+//
+//		String path = sourcePath.substring(0, sourcePath.indexOf(".")) + "_" + System.currentTimeMillis();
+//
+//		String zipFile = path + ".zip";
+//
+//		path = path + "/";
+//
+//		logger.info("解压缩路径：" + path);
+//
+//		ZipUtils.unZipForFilePath(sourcePath, path);
+
+		StepBy sb = new StepBy();
+
+		sb.init("/Users/yanyong/Desktop/controller/java");
+
+		sb.extract();
+
+		sb.resource();
+
+		sb.replace();
+
+//		ZipUtils.zip(new File(zipFile), path);
+
+
+//		logger.info("执行完成后压缩路径：" + zipFile);
+	}
 	
 	
 }

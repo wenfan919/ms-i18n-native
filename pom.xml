@@ -51,6 +51,13 @@
             <name>YonyouCloud-Release</name>
             <url>http://maven.yonyou.com/nexus/content/repositories/YonyouCloud-Release/</url>
         </repository>
+
+        <repository>
+            <id>ebi-repo</id>
+            <name>ebi-repo</name>
+            <url>http://www.ebi.ac.uk/intact/maven/nexus/content/repositories/ebi-repo/</url>
+        </repository>
+
     </repositories>
   
 	<build>

@@ -55,7 +55,7 @@
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.38" level="project" />
     <orderEntry type="library" name="Maven: com.yonyou.iuap.baseservice:iuap-pap-baseservice-controller:3.5.2-RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.yonyou.iuap.baseservice:iuap-pap-baseservice-multitenant:3.5.2-RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: com.yonyou.iuap.baseservice:iuap-pap-baseservice-attachment:3.5.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.yonyou.iuap.baseservice:iuap-pap-baseservice-attachment:3.5.2-RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.yonyou.iuap:iuap-persistence:3.1.0-RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-entitymanager:4.3.5.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging-annotations:1.2.0.Beta1" level="project" />
