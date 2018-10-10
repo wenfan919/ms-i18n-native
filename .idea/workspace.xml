@@ -7,13 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="886994f8-48c3-409f-bb0d-de800cfd9392" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/i18n_provider_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/i18n_provider_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_yonyou_iuap_baseservice_iuap_pap_baseservice_attachment_3_5_1_SNAPSHOT.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_yonyou_iuap_pap_iuap_pap_starter_3_6_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_yonyou_iuap_pap_iuap_pap_starter_3_6_0_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n-provider/i18n-provider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/i18n-provider/i18n-provider.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/main/StepBy.java" beforeDir="false" afterPath="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/main/StepBy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/ResourceFileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/ResourceFileUtil.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/i18n-api/target/" />
     <ignored path="$PROJECT_DIR$/i18n-provider/target/" />
@@ -91,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResourceFileUtil.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ResourceFileUtil.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/ResourceFileUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+            <state relative-caret-position="766">
+              <caret line="223" column="17" lean-forward="true" selection-start-line="223" selection-start-column="17" selection-end-line="223" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -118,11 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StepBy.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StepBy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/main/StepBy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+            <state relative-caret-position="300">
+              <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -187,7 +182,6 @@
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/FilesUtils.java" />
         <option value="$PROJECT_DIR$/i18n-provider/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/core/ScanAllFiles.java" />
-        <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/ResourceFileUtil.java" />
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/cloud/i18n/service/I18nToolsService.java" />
         <option value="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/i18n/service/I18nToolsService.java" />
         <option value="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/i18n/controller/I18nController.java" />
@@ -195,6 +189,7 @@
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/FileUtil.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/main/StepBy.java" />
+        <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/ResourceFileUtil.java" />
       </list>
     </option>
   </component>
@@ -267,114 +262,6 @@
               <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
               <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
               <item name="i18n-server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="yonyou" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="yonyou" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="yonyou" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="yonyou" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="yonyou" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="yonyou" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="yonyou" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n-server" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -655,12 +542,12 @@
       <workItem from="1538201521205" duration="3361000" />
       <workItem from="1538269846327" duration="8507000" />
       <workItem from="1538733924877" duration="583000" />
-      <workItem from="1538960113901" duration="25655000" />
+      <workItem from="1538960113901" duration="27214000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38106000" />
+    <option name="totallyTimeSpent" value="39665000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="833" extended-state="0" />
@@ -669,7 +556,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
       <window_info anchor="bottom" id="Application Servers" order="12" weight="0.32969698" />
-      <window_info anchor="right" id="Maven Projects" order="9" weight="0.18168813" />
+      <window_info anchor="right" id="Maven Projects" order="9" visible="true" weight="0.18168813" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="2" />
@@ -730,13 +617,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/ResourceFileUtil.java</url>
-          <line>216</line>
+          <line>219</line>
           <properties />
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/ResourceFileUtil.java</url>
-          <line>242</line>
+          <line>245</line>
           <properties />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
@@ -1105,13 +992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/ResourceFileUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/i18n-server/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1128,8 +1008,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/main/StepBy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        <state relative-caret-position="300">
+          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/ResourceFileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="223" column="17" lean-forward="true" selection-start-line="223" selection-start-column="17" selection-end-line="223" selection-end-column="17" />
         </state>
       </provider>
     </entry>

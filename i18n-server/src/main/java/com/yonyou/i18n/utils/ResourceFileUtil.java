@@ -214,6 +214,9 @@ public class ResourceFileUtil {
 	 */
 	private void initFileProps() {
 
+		if(_this.fileContent == null || "".equals(_this.fileContent.toString())){
+			return;
+		}
 		for (String str:delSpecialChar(_this.fileContent.toString()).split("\n")) {
 			if (null != str && !"".equals(str.trim())) {
 				if (_this.isDescRow(str)) {
