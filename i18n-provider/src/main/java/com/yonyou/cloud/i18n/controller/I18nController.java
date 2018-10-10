@@ -6,6 +6,7 @@ import com.yonyou.cloud.i18n.service.I18nService;
 import com.yonyou.iuap.baseservice.controller.GenericController;
 import com.yonyou.iuap.mvc.annotation.FrontModelExchange;
 import com.yonyou.iuap.mvc.type.SearchParams;
+import com.yonyou.iuap.utils.PropertyUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,15 +43,15 @@ public class I18nController extends GenericController<I18n> {
         super.setService(i18nService);
     }
 
-    private I18nToolsService i18nServiceImpl;
+    private I18nToolsService i18nToolsService;
 
 //    public I18nServiceImpl getI18nServiceImpl() {
 //        return i18nServiceImpl;
 //    }
 
     @Autowired
-    public void setI18nServiceImpl(I18nToolsService i18nServiceImpl) {
-        this.i18nServiceImpl = i18nServiceImpl;
+    public void setI18nServiceImpl(I18nToolsService i18nToolsService) {
+        this.i18nToolsService = i18nToolsService;
     }
 
     @Override
@@ -114,7 +116,9 @@ public class I18nController extends GenericController<I18n> {
 
             I18n i18n = this.i18nService.findById(listData.get(0).getId());
 
-            String zipFile = this.i18nServiceImpl.operation(i18n.getAttachment().get(0).getAccessAddress());
+            String path = PropertyUtil.getPropertyByKey("storeDir") + File.separator + i18n.getAttachment().get(0).getFileName();
+
+            String zipFile = this.i18nToolsService.operation(path);
 
             i18n.setAttachId(zipFile);
 
