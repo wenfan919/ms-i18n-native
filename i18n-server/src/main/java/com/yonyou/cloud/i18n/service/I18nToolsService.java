@@ -50,7 +50,7 @@ public class I18nToolsService implements II18nToolsService {
 
         logger.info("识别文件：" + sourcePath);
 
-        String path = sourcePath.substring(0, sourcePath.indexOf(".")) + "_" + System.currentTimeMillis();
+        String path = sourcePath.substring(0, sourcePath.lastIndexOf(".")) + "_" + System.currentTimeMillis();
 
         String zipFile = path + ".zip";
 
