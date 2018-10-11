@@ -56,7 +56,7 @@ public class ResourceFileUtil {
 		_this.files.clear();
 		_this.initCorpus();
 		_this.macherCorpus();
-    		_this.writeResourceFile();
+//    		_this.writeResourceFile();
     		_this.fileContent = null;
 //    		_this.fileDescs = null;
 	}

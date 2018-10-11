@@ -10,8 +10,15 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
+/**
+ * 针对压缩及解压缩文件的操作
+ *
+ * @author wenfa
+ */
 public class ZipUtils {
+
     private static Logger log = Logger.getLogger(ZipUtils.class);
+
     static final int BUFFER = 1024;
     private static String comment = "";
 
@@ -22,7 +29,15 @@ public class ZipUtils {
         comment = comment;
     }
 
+    /**
+     * 压缩文件
+     *
+     * @param zipFile   压缩后的文件
+     * @param inputFile 待压缩的文件路径
+     * @throws Exception
+     */
     public static void zip(File zipFile, String inputFile) throws Exception {
+
         ZipOutputStream out = null;
 
         try {
@@ -33,10 +48,13 @@ public class ZipUtils {
             }
 
             out = new ZipOutputStream(new FileOutputStream(zipFile));
-            out.setEncoding("GBK");
+
+            out.setEncoding("UTF-8");
+
             zip(out, f, "");
-        } catch (Exception var7) {
-            log.error("压缩文件不存在!" + inputFile, var7);
+
+        } catch (Exception e) {
+            log.error("压缩文件不存在!" + inputFile, e);
         } finally {
             if (out != null) {
                 out.close();
@@ -76,26 +94,56 @@ public class ZipUtils {
         }
     }
 
+
+    /**
+     * 压缩文件
+     *
+     * @param out  压缩后的文件
+     * @param f    待压缩的文件路径
+     * @param base
+     * @throws Exception
+     */
     private static void zip(ZipOutputStream out, File f, String base) throws Exception {
         int i;
+
+        // 文件路径需要遍历
         if (f.isDirectory()) {
+
             File[] fl = f.listFiles();
+
             out.putNextEntry(new ZipEntry(base + "/"));
             base = base.length() == 0 ? "" : base + "/";
 
             for (i = 0; i < fl.length; ++i) {
                 zip(out, fl[i], base + fl[i].getName());
             }
+
         } else {
             out.putNextEntry(new ZipEntry(base));
-            FileInputStream in = new FileInputStream(f);
-            byte[] buf = new byte[1024];
 
-            while ((i = in.read(buf, 0, 1024)) != -1) {
-                out.write(buf, 0, i);
+            FileInputStream in = null;
+            try {
+
+                in = new FileInputStream(f);
+                byte[] buf = new byte[BUFFER];
+
+                while ((i = in.read(buf, 0, BUFFER)) != -1) {
+                    out.write(buf, 0, i);
+                }
+
+                in.close();
+                in = null;
+
+            } catch (Exception e) {
+                // do nothing
+            } finally {
+
+                if (in != null) {
+                    in.close();
+                }
+
             }
 
-            in.close();
         }
 
     }
