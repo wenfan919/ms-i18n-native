@@ -59,6 +59,7 @@ public class ResourcesFile {
 
         Iterator<Entry<String, String>> mlrts = mlrtMap.entrySet().iterator();
 
+        logger.info("开始写入整体资源文件！");
         while (mlrts.hasNext()) {
 
             Entry<String, String> mlrt = mlrts.next();
@@ -67,6 +68,8 @@ public class ResourcesFile {
             locales = "zh".equalsIgnoreCase(locales) ? "" : locales;
 
             File file = new File(parseProjectPath + File.separator + mlrt.getValue());
+
+            logger.info("++++++整体资源文件路径为： " + file.getAbsolutePath());
 
             // 针对pageNodes生成资源文件
             if (mlrt.getValue().toLowerCase().endsWith(".properties")) {
@@ -89,6 +92,8 @@ public class ResourcesFile {
 
         Iterator<Entry<String, String>> mlrts = null;
 
+        logger.info("开始写入项目路径下的单体资源文件！");
+
         // 将资源文件放到locales目录下
         // 将资源文件放到分层的目录下
         for (PageNode pageNode : pageNodes) {
@@ -110,6 +115,8 @@ public class ResourcesFile {
                     locales = "zh".equalsIgnoreCase(locales) ? "" : locales;
 
                     File file = new File(resourceSubDirect + File.separator + mlrt.getValue());
+
+                    logger.info("------单体资源文件路径为： " + file.getAbsolutePath());
 
                     // properties资源文件
                     if (mlrt.getValue().toLowerCase().endsWith(".properties")) {
@@ -142,6 +149,10 @@ public class ResourcesFile {
 
             if (file.exists())
                 prop.load(new InputStreamReader(new FileInputStream(file), resourceFileEncoding));
+
+            if (!file.getParentFile().exists()){
+                file.getParentFile().mkdirs();
+            }
 
             output = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), resourceFileEncoding));
 
