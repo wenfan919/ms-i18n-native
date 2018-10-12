@@ -36,23 +36,26 @@ public class ResourcesFile {
 
     private static Logger logger = Logger.getLogger(ResourcesFile.class);
 
-    static String parseProjectPath = ConfigUtils.getPropertyValue("parseProjectPath");
+    String parseProjectPath = ConfigUtils.getPropertyValue("parseProjectPath");
 
-    static String testMultiLangResourceType = ConfigUtils.getPropertyValue("testMultiLangResourceType");
+    String testMultiLangResourceType = ConfigUtils.getPropertyValue("testMultiLangResourceType");
 
-    static String resourcePrefix = ConfigUtils.getPropertyValue("resourcePrefix");
+    String resourcePrefix = ConfigUtils.getPropertyValue("resourcePrefix");
 
-    static String resourceFileEncoding = ConfigUtils.getPropertyValue("resourceFileEncoding");
+    String resourceFileEncoding = ConfigUtils.getPropertyValue("resourceFileEncoding");
 
-    static String resourceDirectory = ConfigUtils.getPropertyValue("resourceDirectory");
+    String resourceDirectory = ConfigUtils.getPropertyValue("resourceDirectory");
 
+    public ResourcesFile(){
+
+    }
 
     /**
-     * 将抽取出来的资源写入资源 文件中
+     * 将抽取出来的资源写入整体资源文件中
      *
      * @param pageNodes
      */
-    public static void writeResourceFile(List<PageNode> pageNodes) {
+    public void writeResourceFile(List<PageNode> pageNodes) {
 
         // 读取配置，确定生成类型的文件
         Map<String, String> mlrtMap = StringUtils.getResourceFileList(resourcePrefix, testMultiLangResourceType);
@@ -82,11 +85,11 @@ public class ResourcesFile {
 
 
     /**
-     * 将抽取出来的资源写入资源 文件中
+     * 将抽取出来的资源写入单体资源文件中（分目录）
      *
      * @param pageNodes
      */
-    public static void writeResourceFileByDirectory(List<PageNode> pageNodes) {
+    public void writeResourceFileByDirectory(List<PageNode> pageNodes) {
 
 //		Map<String, String> mlrtMap = ;
 
@@ -139,7 +142,7 @@ public class ResourcesFile {
      * @param pageNodes
      * @param locales
      */
-    private static void writePropertiesFile(File file, List<PageNode> pageNodes, String locales) {
+    private void writePropertiesFile(File file, List<PageNode> pageNodes, String locales) {
 
         BufferedWriter output = null;
 
@@ -196,7 +199,7 @@ public class ResourcesFile {
      * @param pageNode
      * @param locales
      */
-    private static void writeSinglePropertiesFile(File file, PageNode pageNode, String locales) {
+    private void writeSinglePropertiesFile(File file, PageNode pageNode, String locales) {
 
         BufferedWriter output = null;
 
@@ -248,7 +251,7 @@ public class ResourcesFile {
      * @param pageNodes
      * @param locales
      */
-    private static void writeJsonFile(File file, List<PageNode> pageNodes, String locales) {
+    private void writeJsonFile(File file, List<PageNode> pageNodes, String locales) {
 
         BufferedWriter output = null;
 
@@ -300,7 +303,7 @@ public class ResourcesFile {
      * @param pageNode
      * @param locales
      */
-    private static void writeSingleJsonFile(File file, PageNode pageNode, String locales) {
+    private void writeSingleJsonFile(File file, PageNode pageNode, String locales) {
 
         BufferedWriter output = null;
 
@@ -352,7 +355,7 @@ public class ResourcesFile {
      * @param pageNodes
      */
     @Deprecated
-    public static void writeEnglishResourceFile(List<PageNode> pageNodes) {
+    public void writeEnglishResourceFile(List<PageNode> pageNodes) {
 
         File file = new File(ConfigUtils.getPropertyValue("testENGResourcesDirectory"));
 
@@ -402,7 +405,7 @@ public class ResourcesFile {
      * @param pageNodes
      */
     @Deprecated
-    public static void writeJsonResourceFile(List<PageNode> pageNodes) {
+    public void writeJsonResourceFile(List<PageNode> pageNodes) {
 
         File file = new File(""/*testResourcesDirectory*/);
 
@@ -454,7 +457,7 @@ public class ResourcesFile {
      * @param pageNodes
      */
     @Deprecated
-    public static void writeJsonEnglishResourceFile(List<PageNode> pageNodes) {
+    public void writeJsonEnglishResourceFile(List<PageNode> pageNodes) {
 
         File file = new File(ConfigUtils.getPropertyValue("testENGResourcesDirectory"));
 
@@ -502,7 +505,7 @@ public class ResourcesFile {
      * 读取资源文件
      */
     @Deprecated
-    public static void readResourceFile() {
+    public void readResourceFile() {
 
         File file = new File(""/*testResourcesDirectory*/);
 

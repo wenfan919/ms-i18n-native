@@ -46,7 +46,7 @@ public class StepBy {
 	 */
 	public  void extract() {
 
-		ExtractChar.doExtract(pageNodes);
+		new ExtractChar().doExtract(pageNodes);
 		
 				
 	}
@@ -55,11 +55,13 @@ public class StepBy {
 	 * 写入资源文件
 	 */
 	public void resource(){
+
+		ResourcesFile rf = new ResourcesFile();
 		
-		ResourcesFile.writeResourceFile(pageNodes);
+		rf.writeResourceFile(pageNodes);
 		
 		// 分目录写入资源文件
-		ResourcesFile.writeResourceFileByDirectory(pageNodes);
+		rf.writeResourceFileByDirectory(pageNodes);
 		
 		
 	}
@@ -70,7 +72,7 @@ public class StepBy {
 	 */
 	public  void replace() {
 
-		ReplaceFile.updateFilesByReplace(pageNodes);
+		new ReplaceFile().updateFilesByReplace(pageNodes);
 		
 	}
 	
@@ -91,13 +93,13 @@ public class StepBy {
 //        logger.info("解压缩路径：" + path);
 
 
-        String sourcePath = "/Users/yanyong/Desktop/controller/java.zip";
-        String path = "/Users/yanyong/Desktop/controller/java" + "_" + System.currentTimeMillis();
+        String sourcePath = "/Users/yanyong/temp/iuap-pap-baseservice-develop/java.zip";
+        String path = "/Users/yanyong/temp/iuap-pap-baseservice-develop";// + "_" + System.currentTimeMillis();
         String zipFile = path + ".zip";
 
 
         try {
-            ZipUtils.unZipForFilePath(sourcePath, path);
+//            ZipUtils.unZipForFilePath(sourcePath, path);
 
 
 //        logger.info("执行完成后压缩路径：" + zipFile);

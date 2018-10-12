@@ -46,9 +46,13 @@ public class ReplaceFile {
 	private static Logger logger = Logger.getLogger(ReplaceFile.class);
 
 	// 本应该在读取并 解析文件时添加的信息，目前直接添加
-	private static String importJSMessagesStr = ConfigUtils.getPropertyValue("importJSMessagesStr");
-	private static String importModelJSMessagesStr = ConfigUtils.getPropertyValue("importModelJSMessagesStr");
-	private static String replaceJSAPIString = ConfigUtils.getPropertyValue("replaceJSAPIString");
+	String importJSMessagesStr = ConfigUtils.getPropertyValue("importJSMessagesStr");
+	String importModelJSMessagesStr = ConfigUtils.getPropertyValue("importModelJSMessagesStr");
+	String replaceJSAPIString = ConfigUtils.getPropertyValue("replaceJSAPIString");
+
+	public ReplaceFile(){
+
+	}
 
 	/**
 	 * 直接采用替换 的方式替换，不用读取行，采用String的方式
@@ -57,7 +61,7 @@ public class ReplaceFile {
 	 * 
 	 * @param pageNodes
 	 */
-	public static void updateFilesByReplace(List<PageNode> pageNodes){
+	public void updateFilesByReplace(List<PageNode> pageNodes){
 		
 		for(PageNode pageNode : pageNodes){
 			
@@ -166,7 +170,7 @@ public class ReplaceFile {
 	 * @param importStr 替换的字符串
 	 * @return
 	 */
-	public static String updateFileImport(String str, String importStr){
+	public String updateFileImport(String str, String importStr){
 		
 		// 20180814
 		// 添加专门针对三一的逻辑处理，其他项目可参考
@@ -200,10 +204,10 @@ public class ReplaceFile {
 	/**
 	 * 对所有的组件外包一层injectIntl
 	 * 
-	 * @param str 全文本字符流
+	 * @param reader 全文本字符流
 	 * @return
 	 */
-	public static String updateFileForContainerJS(LineNumberReader reader){
+	public String updateFileForContainerJS(LineNumberReader reader){
 		
 		// 20180814
 		// 添加专门针对三一的逻辑处理，其他项目可参考
@@ -256,11 +260,10 @@ public class ReplaceFile {
 	 * 需要依据原始扫描信息而来，因为原始信息做过内容的去重等过滤操作
 	 * 
 	 * @param str 全文本字符流
-	 * @param line ---delete
 	 * @param rss
 	 * @return
 	 */
-	public static String updateFileString(String str, ArrayList<MLResSubstitution> rss){
+	public String updateFileString(String str, ArrayList<MLResSubstitution> rss){
 		
 		// MLResSubstitution里的内容包含界定符号
 		// 整体替换时基于“”、’‘ 的界定可以直接替换，基于{}、<>的界定需要在替换的对象中添加界定符号以保证替换后的完整性。
@@ -302,11 +305,19 @@ public class ReplaceFile {
 				//     对通用的情况采用FormattedMessage的组件方式调用，对日期采用formatMessage的api方式调用
 			}else if(value.startsWith("\"") || value.startsWith("\'")){
 
+				if(value.indexOf("[") > 0){
+					value = value.replace("\\[", "\\\\\\\\[");
+				}
 				// 属性值，采用{this.props.intl.formatMessage({id:"js.buy.com2.0047", defaultMessage:"s ~ e"})}值替换
 				// replaceJSAPIString
 				// placeholder="s~e"
 				String reg4Title = "([^\\s*]+)=" + value;
-				try {matcher = Pattern.compile(reg4Title).matcher(str);}catch(Exception e){logger.info(e); continue;}
+				try {
+					matcher = Pattern.compile(reg4Title).matcher(str);
+				}catch(Exception e){
+					logger.info(e);
+					continue;
+				}
 		        while (matcher.find()) {
 		            String title = matcher.group(1);
 		            if("title".equals(title) || "placeholder".equals(title)){
@@ -430,11 +441,10 @@ public class ReplaceFile {
 	 * 			 其次就是作为独立的纯文本存在的属性
 	 * 
 	 * @param str 全文本字符流
-	 * @param line ---delete
 	 * @param rss
 	 * @return
 	 */
-	public static String updateHTMLFileString(String str, ArrayList<MLResSubstitution> rss){
+	public String updateHTMLFileString(String str, ArrayList<MLResSubstitution> rss){
 		
 		// MLResSubstitution里的内容包含界定符号
 		// 整体替换时基于“”、’‘ 的界定可以直接替换，基于{}、<>的界定需要在替换的对象中添加界定符号以保证替换后的完整性。
@@ -571,7 +581,7 @@ public class ReplaceFile {
 	 * @param map
 	 * @return
 	 */
-	public  static LinkedHashMap<String, String> getOrder(Map<String, String>  map){
+	public  LinkedHashMap<String, String> getOrder(Map<String, String>  map){
 		
 		List<Map.Entry<String, String>> infoIds = new ArrayList<Map.Entry<String, String>>(map.entrySet());
 		
@@ -599,7 +609,7 @@ public class ReplaceFile {
 	 * @param map
 	 * @return
 	 */
-	public  static LinkedHashMap<String, ArrayList<String>> getOrderByKey(Map<String, ArrayList<String>>  map){
+	public  LinkedHashMap<String, ArrayList<String>> getOrderByKey(Map<String, ArrayList<String>>  map){
 		
 		List<Map.Entry<String, ArrayList<String>>> infoIds = new ArrayList<Map.Entry<String, ArrayList<String>>>(map.entrySet());
 		
@@ -629,7 +639,7 @@ public class ReplaceFile {
 	 * 
 	 * @param ext
 	 */
-	public static void sortStringArray(List<String> ext) {
+	public void sortStringArray(List<String> ext) {
         String temp;
         for (int i = 0; i < ext.size(); i++) {
             for (int j = ext.size() - 1; j > i; j--) {
@@ -642,7 +652,7 @@ public class ReplaceFile {
         }
     }
 	
-	public static void updateFiles(List<PageNode> pageNodes){
+	public void updateFiles(List<PageNode> pageNodes){
 		
 		for(PageNode pageNode : pageNodes){
 			
@@ -726,7 +736,7 @@ public class ReplaceFile {
 	 * @param rss
 	 * @return
 	 */
-	public static String updateLine(String str, int line, ArrayList<MLResSubstitution> rss){
+	public String updateLine(String str, int line, ArrayList<MLResSubstitution> rss){
 		
 		
 		for(MLResSubstitution rs : rss){
@@ -765,7 +775,6 @@ public class ReplaceFile {
 	 * 1、 需要定位出具体在哪儿进行写入--需要具体的条件
 	 * 2、 写入的依赖数据
 	 * 
-	 * @param args
 	 */
 	public  void writeDepend() {
 
@@ -777,44 +786,12 @@ public class ReplaceFile {
 	 * 定位出具体在哪儿进行写入--需要具体的条件
 	 * 
 	 * 
-	 * @param args
 	 */
 	public  void locationDepend() {
 
 	}
 	
-	
-	/**
-	 * @param args
-	 */
-	public static void main1(String[] args) {
 
-//		Map<String, String>  map = new HashMap<String, String>();
-//		
-//		List<String> ext = new ArrayList<String>();
-//		ext.add("哈哈");
-//		ext.add("我是王者");
-//		ext.add("menu配置");
-//		ext.add("你不知道的事情");
-//		ext.add("？");
-//		
-//		map.put("哈哈", "哈哈");
-//		map.put("我是王者", "我是王者");
-//		map.put("menu配置", "menu配置");
-//		map.put("你不知道的事情", "你不知道的事情");
-//		map.put("确定", "确定");
-//		
-//		
-//		sortStringArray(ext);
-//		
-//		System.out.println(ext);
-//		
-//		System.out.println(getOrder(map));
-		
-		
-	}
-	
-	
 	public static void main(String[] args) {
 //        String content = "<span>这是内容开始</span><br /><input class=\"u-form-control ipt\" u-meta='{\"id\":\"password\",\"type\":\"password\",\"data\":\"DataTables.login\",\"field\":\"password\"}' placeholder = \"登录密码\" name=\"password\" type=\"text\" onfocus=\"this.type='password'\"><br/><span>这是内容结尾</span>";
 //        
@@ -871,7 +848,7 @@ public class ReplaceFile {
 //        System.out.println(sb.toString());
     }
 
-    public static String replaceContentByPartten(String content,
+    public String replaceContentByPartten(String content,
             String partten, String target) {
         Matcher matcher = Pattern.compile(partten, Pattern.CASE_INSENSITIVE).matcher(content);
         if (matcher.find()) {

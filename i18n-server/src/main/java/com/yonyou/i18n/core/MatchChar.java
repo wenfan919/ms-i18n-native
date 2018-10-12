@@ -31,11 +31,11 @@ public class MatchChar  {
 	// 抽取的规则：匹配规则以及整体性规则
 	//	regexChiExpNote=^[^//*]*[\u0391-\uffe5]+
 	//	regexSimpleChinese=([\u0391-\uffe5]+)
-	static String regexChiExpNote = ConfigUtils.getPropertyValue("regexChiExpNote");
+	String regexChiExpNote = ConfigUtils.getPropertyValue("regexChiExpNote");
 	
-	static String regexChiExpNote4Html = ConfigUtils.getPropertyValue("regexChiExpNote4Html");
+	String regexChiExpNote4Html = ConfigUtils.getPropertyValue("regexChiExpNote4Html");
 	
-	static String regexSimpleChinese = ConfigUtils.getPropertyValue("regexSimpleChinese");
+	String regexSimpleChinese = ConfigUtils.getPropertyValue("regexSimpleChinese");
 	
 	public MatchChar() {
 	}
@@ -49,7 +49,7 @@ public class MatchChar  {
 	 * @return
 	 * @throws InterruptedException
 	 */
-	public static LinkedHashMap<Integer, LinkedHashMap<Integer, String>> search(File file) throws Exception{ 
+	public LinkedHashMap<Integer, LinkedHashMap<Integer, String>> search(File file) throws Exception{
 		
 		LinkedHashMap<Integer, LinkedHashMap<Integer, String>> theWholeChineseInfo = new LinkedHashMap<Integer, LinkedHashMap<Integer, String>>();
 		
@@ -127,7 +127,7 @@ public class MatchChar  {
 	 * @return
 	 * @throws InterruptedException
 	 */
-	public static LinkedHashMap<Integer, LinkedHashMap<Integer, String>> htmlSearch(File file) throws Exception{ 
+	public LinkedHashMap<Integer, LinkedHashMap<Integer, String>> htmlSearch(File file) throws Exception{
 		
 		LinkedHashMap<Integer, LinkedHashMap<Integer, String>> theWholeChineseInfo = new LinkedHashMap<Integer, LinkedHashMap<Integer, String>>();
 		

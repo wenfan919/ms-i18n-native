@@ -25,13 +25,19 @@ public class ScanAllFiles {
 	private static Logger logger = Logger.getLogger(ScanAllFiles.class);
 	
 	// 获取需要解析的项目根路径
-	static String parseProjectPath = ConfigUtils.getPropertyValue("parseProjectPath");
-	static String javasDirectory = ConfigUtils.getPropertyValue("javasDirectory");
-	static String scanFileType = ConfigUtils.getPropertyValue("scanFileType");
-	static String defaultProject = ConfigUtils.getPropertyValue("defaultProject");
-	static String resourcePrefix = ConfigUtils.getPropertyValue("resourcePrefix");
+	String parseProjectPath = ConfigUtils.getPropertyValue("parseProjectPath");
+	String javasDirectory = ConfigUtils.getPropertyValue("javasDirectory");
+	String scanFileType = ConfigUtils.getPropertyValue("scanFileType");
+	String defaultProject = ConfigUtils.getPropertyValue("defaultProject");
+	String resourcePrefix = ConfigUtils.getPropertyValue("resourcePrefix");
 
 	public ScanAllFiles(String path){
+
+		init(path);
+
+	}
+
+	private  void init(String path){
 
 		if(path != null && !"".equals(path)){
 			this.parseProjectPath = path;
@@ -116,7 +122,8 @@ public class ScanAllFiles {
 	/**
 	 * 判断是否含扫描类型的文件
 	 * 
-	 * @param fold
+	 * @param file
+	 * @param fileType
 	 * @return
 	 */
 	private boolean isHaveTheScanFile(File file, String fileType) {

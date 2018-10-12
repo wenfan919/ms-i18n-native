@@ -21,33 +21,40 @@ import com.yonyou.i18n.utils.*;
  */
 public class ExtractChar {
 
-	static String testMultiLangResourceType = ConfigUtils.getPropertyValue("testMultiLangResourceType");
-	static String parseProjectPath = ConfigUtils.getPropertyValue("parseProjectPath");
-	static String importJavaMessagesStr = ConfigUtils.getPropertyValue("importJavaMessagesStr");
-	static String importJSMessagesStr = ConfigUtils.getPropertyValue("importJSMessagesStr");
-	static String replaceJavaString = ConfigUtils.getPropertyValue("replaceJavaString");
-	static String replaceHTMLString = ConfigUtils.getPropertyValue("replaceHTMLString");
-	static String replaceJSString = ConfigUtils.getPropertyValue("replaceJSString");
+	String testMultiLangResourceType = ConfigUtils.getPropertyValue("testMultiLangResourceType");
+	String parseProjectPath = ConfigUtils.getPropertyValue("parseProjectPath");
+	String importJavaMessagesStr = ConfigUtils.getPropertyValue("importJavaMessagesStr");
+	String importJSMessagesStr = ConfigUtils.getPropertyValue("importJSMessagesStr");
+	String replaceJavaString = ConfigUtils.getPropertyValue("replaceJavaString");
+	String replaceHTMLString = ConfigUtils.getPropertyValue("replaceHTMLString");
+	String replaceJSString = ConfigUtils.getPropertyValue("replaceJSString");
 
 	// 全局的目录清单
-	static HashSet<String> keyPrefixs = new HashSet<String>();
+	HashSet<String> keyPrefixs = new HashSet<String>();
+
+    MatchChar mc = new MatchChar();
+
+
+	public ExtractChar(){
+		init();
+	}
 
 	/**
 	 * init
 	 */
-	private static void init(){
+	private void init(){
 
-		if(testMultiLangResourceType.contains("json")){
+		if(this.testMultiLangResourceType.contains("json")){
 
 			JsonFileUtil jsonFileUtil = new JsonFileUtil();
 
-			jsonFileUtil.init(parseProjectPath + File.separator + "locales", ".json");
+			jsonFileUtil.init(this.parseProjectPath + File.separator + "locales", ".json");
 			keyPrefixs = jsonFileUtil.getKeyPrefix();
 
 		} else {
 			ResourceFileUtil resourceFileUtil = new ResourceFileUtil();
 
-			resourceFileUtil.init(parseProjectPath + File.separator + "locales", ".properties");
+			resourceFileUtil.init(this.parseProjectPath + File.separator + "locales", ".properties");
 			keyPrefixs = resourceFileUtil.getKeyPrefix();
 		}
 
@@ -68,11 +75,9 @@ public class ExtractChar {
 	 * ********html文件******
 	 * 
 	 */
-	public static void doExtract(List<PageNode> pageNodes){
+	public void doExtract(List<PageNode> pageNodes){
 
-		init();
-
-		for (PageNode pageNode : pageNodes) { 
+		for (PageNode pageNode : pageNodes) {
 			
 			// 针对每个独立的文件，进行中文的解析
 			if(pageNode.isFile()){
@@ -90,7 +95,7 @@ public class ExtractChar {
 	 * 
 	 * @param pageNode
 	 */
-	public static void writeMap2Node(PageNode pageNode){
+	public void writeMap2Node(PageNode pageNode){
 		
 		File  file = pageNode.getFile();
 		
@@ -100,9 +105,9 @@ public class ExtractChar {
 			LinkedHashMap<Integer, LinkedHashMap<Integer, String>> theWholeChineseInfo = null;
 			
 			if("html".equalsIgnoreCase(pageNode.getType())){
-				theWholeChineseInfo = MatchChar.htmlSearch(file);
+				theWholeChineseInfo = mc.htmlSearch(file);
 			}else{
-				theWholeChineseInfo = MatchChar.search(file);
+				theWholeChineseInfo = mc.search(file);
 			}
 			
 			Iterator<Entry<Integer, LinkedHashMap<Integer, String>>>  fileInfo = theWholeChineseInfo.entrySet().iterator();
@@ -181,7 +186,7 @@ public class ExtractChar {
 	 * @param pageNode
 	 * @return
 	 */
-	public static String getKeyPrefix(HashSet<String> keyPrefixs, PageNode pageNode){
+	public String getKeyPrefix(HashSet<String> keyPrefixs, PageNode pageNode){
 		
 		
 //		String keyPrefix = pageNode.getType().substring(0, 2) +"." + pageNode.getParent().getResModuleName()+"." + pageNode.getResModuleName()+".";
@@ -219,14 +224,14 @@ public class ExtractChar {
 	 * 主要是对资源数据的key值进行定义，对不同类型的文件的资源进行替换时需要考虑不同的写入内容
 	 * 
 	 */
-	public static void doDataWash(PageNode pageNode){
+	public void doDataWash(PageNode pageNode){
 		
 		ArrayList<MLResSubstitution> substitutions = pageNode.getSubstitutions();
 		
 		// 针对java文件的处理
 		if("java".equals(pageNode.getType())){
 			
-			pageNode.setAddContent(importJavaMessagesStr);
+			pageNode.setAddContent(this.importJavaMessagesStr);
 			
 			int flowNumber = 1;
 			
@@ -242,7 +247,7 @@ public class ExtractChar {
 				substitution.setKey(key);
 				
 				// MessageSourceUtil.getMessage(\"{0}\", null, \"{1}\")
-				String replaceStr = replaceJavaString.replace("{0}", key).replace("{1}", StringUtils.getStrByDeleteBoundary(substitution.getValue()));
+				String replaceStr = this.replaceJavaString.replace("{0}", key).replace("{1}", StringUtils.getStrByDeleteBoundary(substitution.getValue()));
 
 				substitution.setReplaceStr(replaceStr);
 				
@@ -269,7 +274,7 @@ public class ExtractChar {
 				
 				// replaceStr
 				// <label class=\"i18n\" name=\"{0}\"/>
-				String replaceStr = replaceHTMLString.replace("{0}", key);
+				String replaceStr = this.replaceHTMLString.replace("{0}", key);
 				substitution.setReplaceStr(replaceStr);
 				
 				// pageNode
@@ -279,7 +284,7 @@ public class ExtractChar {
 			
 		}else if("js".equals(pageNode.getType())){
 			
-			pageNode.setAddContent(importJSMessagesStr);
+			pageNode.setAddContent(this.importJSMessagesStr);
 			
 			int flowNumber = 1;
 			String keyPrefix = getKeyPrefix(keyPrefixs, pageNode);
@@ -296,7 +301,7 @@ public class ExtractChar {
 				
 				// replaceStr
 				// $.i18n.prop(\'{0}\')
-				String replaceStr = replaceJSString.replace("{0}", key).replace("{1}", StringUtils.getStrByDeleteBoundary(substitution.getValue()));
+				String replaceStr = this.replaceJSString.replace("{0}", key).replace("{1}", StringUtils.getStrByDeleteBoundary(substitution.getValue()));
 				substitution.setReplaceStr(replaceStr);
 				
 				// pageNode
