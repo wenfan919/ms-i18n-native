@@ -15,6 +15,7 @@ import java.util.Map.Entry;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonParser;
+import com.yonyou.i18n.utils.TranslateUtils;
 import org.apache.log4j.Logger;
 
 import com.google.gson.JsonObject;
@@ -66,9 +67,9 @@ public class ResourcesFile {
         while (mlrts.hasNext()) {
 
             Entry<String, String> mlrt = mlrts.next();
-            String locales = mlrt.getKey().toUpperCase();
-            locales = locales.length() > 2 ? locales.substring(0, 2) : locales;
-            locales = "zh".equalsIgnoreCase(locales) ? "" : locales;
+            String locales = mlrt.getKey();// .toUpperCase();
+//            locales = locales.length() > 2 ? locales.substring(0, 2) : locales;
+//            locales = "zh".equalsIgnoreCase(locales) ? "" : locales;
 
             File file = new File(parseProjectPath + File.separator + mlrt.getValue());
 
@@ -113,9 +114,9 @@ public class ResourcesFile {
                 while (mlrts.hasNext()) {
 
                     Entry<String, String> mlrt = mlrts.next();
-                    String locales = mlrt.getKey().toUpperCase();
-                    locales = locales.length() > 2 ? locales.substring(0, 2) : locales;
-                    locales = "zh".equalsIgnoreCase(locales) ? "" : locales;
+                    String locales = mlrt.getKey();//.toUpperCase();
+//                    locales = locales.length() > 2 ? locales.substring(0, 2) : locales;
+//                    locales = "zh".equalsIgnoreCase(locales) ? "" : locales;
 
                     File file = new File(resourceSubDirect + File.separator + mlrt.getValue());
 
@@ -168,7 +169,7 @@ public class ResourcesFile {
                     String v = rs.getValue();
                     if (v.length() <= 2) continue;
 
-                    prop.setProperty(rs.getKey(), Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(v)) + locales);
+                    prop.setProperty(rs.getKey(), TranslateUtils.transByLocales(Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(v)), locales));
                 }
             }
 
@@ -221,7 +222,7 @@ public class ResourcesFile {
                 String v = rs.getValue();
                 if (v.length() <= 2) continue;
 
-                props.setProperty(rs.getKey(), Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(v)) + locales);
+                props.setProperty(rs.getKey(), TranslateUtils.transByLocales(Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(v)), locales));
             }
 
             // 保存属性值

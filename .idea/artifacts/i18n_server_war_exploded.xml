@@ -48,6 +48,7 @@
           <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.7" />
           <element id="library" level="project" name="Maven: org.json:json:20080701" />
           <element id="library" level="project" name="Maven: org.mozilla.intl:chardet:1.0" />
+          <element id="library" level="project" name="Maven: chineseutils:chineseutils:0.1" />
           <element id="library" level="project" name="Maven: org.apache.ant:ant:1.8.2" />
           <element id="library" level="project" name="Maven: org.apache.ant:ant-launcher:1.8.2" />
         </element>

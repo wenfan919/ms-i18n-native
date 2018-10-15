@@ -123,6 +123,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>chineseutils</groupId>
+			<artifactId>chineseutils</artifactId>
+			<version>0.1</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.apache.ant</groupId>
 			<artifactId>ant</artifactId>
 			<version>1.8.2</version>
