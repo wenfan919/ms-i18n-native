@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * 针对压缩及解压缩文件的操作
  *
- * @author wenfa
+ * @author wenfan
  */
 public class ZipUtils {
 

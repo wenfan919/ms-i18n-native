@@ -8,17 +8,11 @@ import com.yonyou.i18n.core.ReplaceFile;
 import com.yonyou.i18n.core.ResourcesFile;
 import com.yonyou.i18n.core.ScanAllFiles;
 import com.yonyou.i18n.model.MLResSubstitution;
-import com.yonyou.i18n.model.OrderedProperties;
 import com.yonyou.i18n.model.PageNode;
-import com.yonyou.i18n.utils.Helper;
-import com.yonyou.i18n.utils.StringUtils;
-import com.yonyou.i18n.utils.TranslateUtils;
-import com.yonyou.i18n.utils.ZipUtils;
+import com.yonyou.i18n.utils.*;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
+import java.io.File;
+import java.util.*;
 
 /**
  * 整体的实现步骤是：
@@ -33,6 +27,11 @@ public class StepBy {
 
     // 所有的数据都是通过该对象进行传递的
     private List<PageNode> pageNodes = null;
+
+    // 获取写入的语种类别
+    public Iterator<Map.Entry<String, String>> getMlrts(){
+         return StringUtils.getResourceFileList(ConfigUtils.getPropertyValue("resourcePrefix"), ConfigUtils.getPropertyValue("testMultiLangResourceType")).entrySet().iterator();
+    }
 
     // 获取运行时的抽取中文信息
     public List<PageNode> getPageNodes() {
