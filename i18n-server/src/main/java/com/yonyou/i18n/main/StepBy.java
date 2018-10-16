@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.yonyou.i18n.main;
 
@@ -7,79 +7,112 @@ import com.yonyou.i18n.core.ExtractChar;
 import com.yonyou.i18n.core.ReplaceFile;
 import com.yonyou.i18n.core.ResourcesFile;
 import com.yonyou.i18n.core.ScanAllFiles;
+import com.yonyou.i18n.model.MLResSubstitution;
+import com.yonyou.i18n.model.OrderedProperties;
 import com.yonyou.i18n.model.PageNode;
+import com.yonyou.i18n.utils.Helper;
+import com.yonyou.i18n.utils.StringUtils;
+import com.yonyou.i18n.utils.TranslateUtils;
 import com.yonyou.i18n.utils.ZipUtils;
 
-import java.io.File;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 /**
- * 
  * 整体的实现步骤是：
- * 
+ * <p>
  * 1、 对文件中的中文进行抽取
  * 2、 对中文进行替换
  * 3、 同时需要往文件中写入固定的依赖行
- * @author wenfa
  *
+ * @author wenfa
  */
 public class StepBy {
 
-	// 所有的数据都是通过该对象进行传递的
-	private List<PageNode> pageNodes = null;
-	
-	/**
-	 * 初始化项目目录
-	 * 
-	 * 加载所有文件
-	 */
-	public void init(String path){
-		
-		this.pageNodes = (new ScanAllFiles(path)).loadNodes();
-		
-	}
-	
-	/**
-	 * 通过字符集范围进行抽取
-	 * 
-	 * @param
-	 */
-	public  void extract() {
+    // 所有的数据都是通过该对象进行传递的
+    private List<PageNode> pageNodes = null;
 
-		new ExtractChar().doExtract(pageNodes);
-		
-				
-	}
-	
-	/**
-	 * 写入资源文件
-	 */
-	public void resource(){
+    // 获取运行时的抽取中文信息
+    public List<PageNode> getPageNodes() {
+        return this.pageNodes;
+    }
 
-		ResourcesFile rf = new ResourcesFile();
-		
-		rf.writeResourceFile(pageNodes);
-		
-		// 分目录写入资源文件
-		rf.writeResourceFileByDirectory(pageNodes);
-		
-		
-	}
-	
-	/**
-	 * 直接替换
-	 * @param
-	 */
-	public  void replace() {
+    // 获取运行时的抽取中文信息
+    public Properties getPageNodesProperties(String locales) {
 
-		new ReplaceFile().updateFilesByReplace(pageNodes);
-		
-	}
-	
+        Properties prop = new Properties();
 
-	public static void main(String [] args){
+        // 设置属性值
+        for (PageNode pageNode : this.pageNodes) {
+            ArrayList<MLResSubstitution> rss = pageNode.getSubstitutions();
+
+            for (MLResSubstitution rs : rss) {
+                // 在写入资源文件时，去掉前后的界定符号
+                String v = rs.getValue();
+                if (v.length() <= 2) continue;
+
+                prop.setProperty(rs.getKey(), TranslateUtils.transByLocales(Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(v)), locales));
+            }
+        }
+
+        return prop;
+    }
 
 
+    /**
+     * 初始化项目目录
+     * <p>
+     * 加载所有文件
+     */
+    public void init(String path) {
+
+        this.pageNodes = (new ScanAllFiles(path)).loadNodes();
+
+    }
+
+    /**
+     * 通过字符集范围进行抽取
+     *
+     * @param
+     */
+    public void extract() {
+
+        new ExtractChar().doExtract(pageNodes);
+
+
+    }
+
+    /**
+     * 写入资源文件
+     */
+    public void resource() {
+
+        ResourcesFile rf = new ResourcesFile();
+
+        // 写入整体资源文件
+        rf.writeResourceFile(pageNodes);
+
+        // 分目录写入资源文件
+        rf.writeResourceFileByDirectory(pageNodes);
+
+
+    }
+
+    /**
+     * 直接替换
+     *
+     * @param
+     */
+    public void replace() {
+
+        new ReplaceFile().updateFilesByReplace(pageNodes);
+
+    }
+
+
+    public static void main(String[] args) {
 
 
 //        logger.info("识别文件：" + sourcePath);
@@ -125,10 +158,8 @@ public class StepBy {
         }
 
 
-
-
 //		logger.info("执行完成后压缩路径：" + zipFile);
-	}
-	
-	
+    }
+
+
 }

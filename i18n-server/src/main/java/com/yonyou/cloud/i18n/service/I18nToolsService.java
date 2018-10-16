@@ -1,12 +1,17 @@
 package com.yonyou.cloud.i18n.service;
 
 import com.yonyou.i18n.main.StepBy;
+import com.yonyou.i18n.utils.ConfigUtils;
+import com.yonyou.i18n.utils.StringUtils;
 import com.yonyou.i18n.utils.ZipUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * spring-boot工程示例，服务具体实现，统计功能
@@ -19,6 +24,9 @@ public class I18nToolsService implements II18nToolsService {
 
     private static final Logger logger = LoggerFactory.getLogger(I18nToolsService.class);
 
+
+    @Autowired(required = true)
+    public ITranslateToolsService iTranslateToolsService;
 
     /**
      * 执行工具逻辑
@@ -67,6 +75,30 @@ public class I18nToolsService implements II18nToolsService {
         sb.extract();
 
         sb.resource();
+
+        // 资源保存完成后添加对数据库的写入操作
+        try {
+
+            // 按照类型生成文件
+            Iterator<Map.Entry<String, String>> mlrts = StringUtils.getResourceFileList(ConfigUtils.getPropertyValue("resourcePrefix"), ConfigUtils.getPropertyValue("testMultiLangResourceType")).entrySet().iterator();
+
+            while (mlrts.hasNext()) {
+
+                Map.Entry<String, String> mlrt = mlrts.next();
+                String locales = mlrt.getKey();//.toUpperCase();
+
+                if (locales == null || "".equals(locales) || "zh_CN".equalsIgnoreCase(locales) || "cn".equalsIgnoreCase(locales)) {
+                    iTranslateToolsService.saveTranslate(sb.getPageNodesProperties(locales));
+                } else {
+                    iTranslateToolsService.updateTranslate(sb.getPageNodesProperties(locales), locales);
+                }
+
+
+            }
+        } catch (Exception e) {
+            // DO Nothing
+        }
+
 
         sb.replace();
 

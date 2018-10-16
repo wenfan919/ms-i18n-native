@@ -7,18 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="886994f8-48c3-409f-bb0d-de800cfd9392" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/controller/TranslateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/dao/TranslateMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/entity/Translate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/service/TranslateService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/i18n-provider/src/main/resources/mybatis/mysql/TranslateMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/TranslateUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/i18n_server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/i18n_server_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/i18n-api/src/main/java/com/yonyou/cloud/i18n/service/ITranslateToolsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/service/TranslateToolsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n-server/i18n-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/i18n-server/i18n-server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/i18n-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/controller/TranslateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/controller/TranslateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/service/TranslateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/service/TranslateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/cloud/i18n/service/I18nToolsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/cloud/i18n/service/I18nToolsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/core/ResourcesFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/core/ResourcesFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n-server/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/i18n-server/src/main/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/main/StepBy.java" beforeDir="false" afterPath="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/main/StepBy.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/i18n-api/target/" />
     <ignored path="$PROJECT_DIR$/i18n-provider/target/" />
@@ -41,29 +37,62 @@
       <file leaf-file-name="StepBy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/main/StepBy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="31" column="14" lean-forward="true" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+            <state relative-caret-position="300">
+              <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="I18nController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/i18n/controller/I18nController.java">
+      <file leaf-file-name="TranslateService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/service/TranslateService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="113" selection-start-line="113" selection-end-line="113" />
+            <state relative-caret-position="434">
+              <caret line="52" column="32" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="32" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1352#1353#0" expanded="true" />
+                <element signature="e#1400#1401#0" expanded="true" />
+                <element signature="e#1588#1599#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/i18n-server/pom.xml">
+      <file leaf-file-name="Translate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/entity/Translate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="128" column="21" selection-start-line="128" selection-start-column="21" selection-end-line="128" selection-end-column="21" />
+            <state relative-caret-position="346">
+              <caret line="79" column="31" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TranslateToolsService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/service/TranslateToolsService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1053#1064#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppI18nConstant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/i18n-api/src/main/java/com/yonyou/cloud/i18n/constants/AppI18nConstant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="II18nService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/i18n-api/src/main/java/com/yonyou/cloud/i18n/service/II18nService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -71,53 +100,38 @@
       <file leaf-file-name="ResourcesFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/core/ResourcesFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="80" column="73" lean-forward="true" selection-start-line="80" selection-start-column="73" selection-end-line="80" selection-end-column="73" />
+            <state relative-caret-position="94">
+              <caret line="113" column="41" lean-forward="true" selection-start-line="113" selection-start-column="41" selection-end-line="113" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TranslateUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/TranslateUtils.java">
+      <file leaf-file-name="ITranslateToolsService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/i18n-api/src/main/java/com/yonyou/cloud/i18n/service/ITranslateToolsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="69" lean-forward="true" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
+            <state relative-caret-position="300">
+              <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/i18n-server/src/main/resources/application.yml">
+      <file leaf-file-name="I18nToolsService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/cloud/i18n/service/I18nToolsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" selection-start-column="7" selection-end-line="3" selection-end-column="19" />
+            <state relative-caret-position="-145">
+              <caret line="78" column="29" lean-forward="true" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/i18n-server/src/main/resources/config.properties">
+      <file leaf-file-name="II18nToolsService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/i18n-api/src/main/java/com/yonyou/cloud/i18n/service/II18nToolsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="59" lean-forward="true" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StringUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/StringUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="167" column="25" selection-start-line="167" selection-start-column="25" selection-end-line="167" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="log4j.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/i18n-server/src/main/resources/log4j.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="320">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
         </entry>
@@ -133,9 +147,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>GenericApplicationListener</find>
-      <find>ClasspathLoggingApplicationListener</find>
-      <find>4f4197f3-2bc6-46e0-a303-8faab14b20a9</find>
       <find>org.apache</find>
       <find>http://localhost:9688/</find>
       <find>Document</find>
@@ -163,6 +174,9 @@
       <find>writeEnglishResourceFile</find>
       <find>setProperty</find>
       <find>&quot;zh&quot;.equalsIgnoreCase</find>
+      <find>II18nToolsService</find>
+      <find>Properties</find>
+      <find>corpus</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -193,20 +207,26 @@
         <option value="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/i18n/service/I18nToolsService.java" />
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/FileUtil.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/cloud/i18n/service/I18nToolsService.java" />
         <option value="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/i18n/controller/I18nController.java" />
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/ZipUtils.java" />
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/ResourceFileUtil.java" />
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/core/ScanAllFiles.java" />
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/core/ReplaceFile.java" />
-        <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/main/StepBy.java" />
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/core/MatchChar.java" />
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/core/ExtractChar.java" />
         <option value="$PROJECT_DIR$/i18n-server/pom.xml" />
         <option value="$PROJECT_DIR$/i18n-server/src/main/resources/config.properties" />
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/ChineseUtils.java" />
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/TranslateUtils.java" />
+        <option value="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/utils/OrderedProperties.java" />
         <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/core/ResourcesFile.java" />
+        <option value="$PROJECT_DIR$/i18n-api/src/main/java/com/yonyou/cloud/i18n/service/ITranslateService.java" />
+        <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/main/StepBy.java" />
+        <option value="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/controller/TranslateController.java" />
+        <option value="$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/cloud/i18n/service/I18nToolsService.java" />
+        <option value="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/service/TranslateService.java" />
+        <option value="$PROJECT_DIR$/i18n-api/src/main/java/com/yonyou/cloud/i18n/service/ITranslateToolsService.java" />
+        <option value="$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/service/TranslateToolsService.java" />
       </list>
     </option>
   </component>
@@ -266,9 +286,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="1440" />
+    <option name="width" value="1280" />
     <option name="height" value="833" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -290,7 +310,178 @@
             <path>
               <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
               <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="constants" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
               <item name="i18n-provider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="translate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="translate" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="translate" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="translate" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="translate" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
@@ -389,6 +580,17 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="yonyou" type="462c0819:PsiDirectoryNode" />
               <item name="i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ms-examples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ms-i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="yonyou" type="462c0819:PsiDirectoryNode" />
+              <item name="i18n" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -425,6 +627,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yonyou.cloud.translate.service" />
+      <recent name="com.yonyou.cloud.utils" />
       <recent name="com.yonyou.cloud.i18n.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -686,20 +890,21 @@
       <workItem from="1538733924877" duration="583000" />
       <workItem from="1538960113901" duration="37454000" />
       <workItem from="1539237564419" duration="14481000" />
-      <workItem from="1539568489485" duration="9460000" />
+      <workItem from="1539568489485" duration="19422000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73846000" />
+    <option name="totallyTimeSpent" value="83808000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="833" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="833" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
       <window_info anchor="bottom" id="Application Servers" order="12" weight="0.32969698" />
-      <window_info anchor="right" id="Maven Projects" order="9" sideWeight="0.49382716" visible="true" weight="0.18168813" />
+      <window_info anchor="right" id="Maven Projects" order="9" sideWeight="0.49382716" visible="true" weight="0.20457797" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="2" />
@@ -717,7 +922,7 @@
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31793478" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32880434" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.6154891" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18526466" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="6" side_tool="true" />
@@ -817,72 +1022,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/FileUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1345">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/LogUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-server/.classpath">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="61" lean-forward="true" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-server/src/main/resources/logback.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/yonyou/iuap/baseservice/iuap-pap-baseservice-attachment/3.5.1-SNAPSHOT/iuap-pap-baseservice-attachment-3.5.1-20180921.061032-42.jar!/com/yonyou/iuap/baseservice/attachment/entity/AttachmentEntity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/yonyou/iuap/baseservice/iuap-pap-baseservice-attachment/3.5.1-SNAPSHOT/iuap-pap-baseservice-attachment-3.5.1-20180921.061032-42.jar!/com/yonyou/iuap/baseservice/attachment/controller/FileManageController.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="29" column="31" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="58" column="8" selection-start-line="54" selection-start-column="20" selection-end-line="58" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/yonyou/iuap/pap/eiap-plus-common/3.5.2-RELEASE/eiap-plus-common-3.5.2-RELEASE.jar!/com/yonyou/iuap/base/web/BaseController.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/yonyou/iuap/baseservice/iuap-pap-baseservice-controller/3.5.2-RELEASE/iuap-pap-baseservice-controller-3.5.2-RELEASE.jar!/com/yonyou/iuap/baseservice/controller/GenericController.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-615">
-          <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/i18n-provider/.project">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -960,13 +1099,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-api/src/main/java/com/yonyou/cloud/i18n/service/II18nToolsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/ZipUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -998,16 +1130,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/cloud/i18n/service/I18nToolsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/ReadSelectedLine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1026,13 +1148,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/core/ReplaceFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12270">
-          <caret line="850" column="10" selection-start-line="850" selection-start-column="10" selection-end-line="850" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -1070,75 +1185,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/entity/Translate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/service/TranslateService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/controller/TranslateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="64" column="60" selection-start-line="64" selection-start-column="60" selection-end-line="64" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/i18n/service/I18nEnumService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/i18n/service/I18nService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/i18n/service/I18nToolsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/i18n/controller/I18nController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="113" selection-start-line="113" selection-end-line="113" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/i18n-server/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="128" column="21" selection-start-line="128" selection-start-column="21" selection-end-line="128" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/i18n-server/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -1152,7 +1202,7 @@
     <entry file="file://$PROJECT_DIR$/i18n-server/src/main/resources/config.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="59" lean-forward="true" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+          <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -1170,24 +1220,189 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-server/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/core/ReplaceFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="659">
+          <caret line="850" column="10" selection-start-line="850" selection-start-column="10" selection-end-line="850" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/model/OrderedProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/i18n/service/I18nService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="56" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/cloud/i18n/I18nServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/i18n/service/I18nEnumService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/i18n/service/I18nToolsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/utils/OrderedProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="49" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/i18n/controller/I18nController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="113" selection-start-line="113" selection-end-line="113" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/JsonFileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="183" column="5" lean-forward="true" selection-start-line="183" selection-start-column="5" selection-end-line="183" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/controller/TranslateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="95" column="35" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/utils/TranslateUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="69" lean-forward="true" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
+        <state relative-caret-position="300">
+          <caret line="20" column="9" selection-start-line="8" selection-start-column="8" selection-end-line="20" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/yonyou/iuap/baseservice/iuap-pap-baseservice-intg/3.5.2-RELEASE/iuap-pap-baseservice-intg-3.5.2-RELEASE.jar!/com/yonyou/iuap/baseservice/intg/service/GenericIntegrateService.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="154" column="5" selection-start-line="139" selection-start-column="4" selection-end-line="154" selection-end-column="5" />
+          <folding>
+            <element signature="e#5875#5876#0" expanded="true" />
+            <element signature="e#5923#5924#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/entity/Translate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="79" column="31" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/service/TranslateService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="52" column="32" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="32" />
+          <folding>
+            <element signature="e#1352#1353#0" expanded="true" />
+            <element signature="e#1400#1401#0" expanded="true" />
+            <element signature="e#1588#1599#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-provider/src/main/java/com/yonyou/cloud/translate/service/TranslateToolsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1053#1064#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-api/src/main/java/com/yonyou/cloud/i18n/constants/AppI18nConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-api/src/main/java/com/yonyou/cloud/i18n/service/ITranslateToolsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-api/src/main/java/com/yonyou/cloud/i18n/service/II18nService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-api/src/main/java/com/yonyou/cloud/i18n/service/II18nToolsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/cloud/i18n/service/I18nToolsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-145">
+          <caret line="78" column="29" lean-forward="true" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/core/ResourcesFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="80" column="73" lean-forward="true" selection-start-line="80" selection-start-column="73" selection-end-line="80" selection-end-column="73" />
+        <state relative-caret-position="94">
+          <caret line="113" column="41" lean-forward="true" selection-start-line="113" selection-start-column="41" selection-end-line="113" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/i18n-server/src/main/java/com/yonyou/i18n/main/StepBy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="31" column="14" lean-forward="true" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+        <state relative-caret-position="300">
+          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
         </state>
       </provider>
     </entry>

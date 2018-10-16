@@ -173,6 +173,8 @@ public class ResourcesFile {
                 }
             }
 
+
+
             // 保存属性值
             prop.store(output, "create the resource file");
 
