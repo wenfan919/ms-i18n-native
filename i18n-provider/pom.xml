@@ -29,6 +29,12 @@
 			<artifactId>i18n-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.yonyou.cloud.i18n</groupId>
+			<artifactId>i18n-entity</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		
 		<!-- RPC -->
 		<dependency>

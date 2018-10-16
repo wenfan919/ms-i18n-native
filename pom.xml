@@ -32,7 +32,12 @@
 	</properties>
 
     <modules>
+
+        <module>i18n-entity</module>
+
         <module>i18n-api</module>
+
+        <module>i18n-tools</module>
 
         <module>i18n-provider</module>
 

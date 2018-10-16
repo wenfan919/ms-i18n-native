@@ -7,14 +7,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="i18n-api" />
+        <module name="i18n-entity" />
         <module name="i18n-provider" />
         <module name="i18n-server" />
+        <module name="i18n-tools" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="i18n-api" target="1.8" />
+      <module name="i18n-entity" target="1.8" />
       <module name="i18n-provider" target="1.8" />
       <module name="i18n-server" target="1.8" />
+      <module name="i18n-tools" target="1.8" />
       <module name="ms-i18n" target="1.7" />
     </bytecodeTargetLevel>
   </component>

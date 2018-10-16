@@ -218,6 +218,7 @@
     <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-juli:8.5.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.ant:ant:1.8.2" level="project" />
     <orderEntry type="module" module-name="i18n-api" />
+    <orderEntry type="module" module-name="i18n-entity" />
     <orderEntry type="library" name="Maven: com.yonyou.cloud.middleware:middleware:5.0.0-RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.yonyou.cloud.middleware:iris-spring-support:5.0.0-RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-jdbc:8.5.31" level="project" />

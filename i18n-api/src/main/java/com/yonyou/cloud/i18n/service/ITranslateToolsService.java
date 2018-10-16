@@ -6,6 +6,7 @@ import com.yonyou.cloud.middleware.rpc.Async;
 import com.yonyou.cloud.middleware.rpc.RemoteCall;
 import com.yonyou.cloud.mwclient.servmeta.annotation.ApiParam;
 import com.yonyou.cloud.mwclient.servmeta.annotation.ApiReturnValue;
+import com.yonyou.cloud.translate.entity.Translate;
 
 import java.util.List;
 import java.util.Properties;
@@ -59,6 +60,20 @@ public interface ITranslateToolsService {
 //    @ApiOperation("根据编码获取所有资源列表")
 //    public @ApiReturnValue(name = "资源列表", description = "资源列表")
 //    List getList(@ApiParam(name = "资源", required = true, description = "整体的资源列表") Properties properties) throws Exception;
+
+
+    /**
+     * server -> provider
+     * 执行国际化工具完成后对资源的数据库保存，主要用于后续的翻译工作
+     * 异步调用。
+     *
+     * @param list 资源的整体对象
+     * @return Boolean
+     */
+    @Async
+    @ApiOperation("执行国际化工具完成后对资源的数据库保存，主要用于后续的翻译工作")
+    public @ApiReturnValue(name = "执行状态", description = "是否执行成功")
+    Boolean saveTranslate(@ApiParam(name = "资源", required = true, description = "整体的资源列表") List<Translate> list) throws Exception;
 
 
 

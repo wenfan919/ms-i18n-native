@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/i18n-api/i18n-api.iml" filepath="$PROJECT_DIR$/i18n-api/i18n-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/i18n-entity/i18n-entity.iml" filepath="$PROJECT_DIR$/i18n-entity/i18n-entity.iml" />
       <module fileurl="file://$PROJECT_DIR$/i18n-provider/i18n-provider.iml" filepath="$PROJECT_DIR$/i18n-provider/i18n-provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/i18n-server/i18n-server.iml" filepath="$PROJECT_DIR$/i18n-server/i18n-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/i18n-tools/i18n-tools.iml" filepath="$PROJECT_DIR$/i18n-tools/i18n-tools.iml" />
       <module fileurl="file://$PROJECT_DIR$/ms-i18n.iml" filepath="$PROJECT_DIR$/ms-i18n.iml" />
     </modules>
   </component>

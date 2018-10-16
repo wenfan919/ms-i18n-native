@@ -54,7 +54,7 @@ public class TranslateService extends GenericIntegrateService<Translate> {
             try {
                 listData.add(this.findUnique("propertyCode", key));
             } catch (Exception e) {
-                logger.info("获取写入的资源异常，code值为：" + key + "，异常原因：" + e);
+                logger.error("获取写入的资源异常，code值为：" + key + "，异常原因：" + e);
             }
         }
         return listData;

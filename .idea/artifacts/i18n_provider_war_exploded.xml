@@ -191,6 +191,9 @@
           <element id="archive" name="i18n-api-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="i18n-api" />
           </element>
+          <element id="archive" name="i18n-entity-1.0.0-SNAPSHOT.jar">
+            <element id="module-output" name="i18n-entity" />
+          </element>
           <element id="library" level="project" name="Maven: com.yonyou.cloud.middleware:middleware:5.0.0-RELEASE" />
           <element id="library" level="project" name="Maven: com.yonyou.cloud.middleware:iris-spring-support:5.0.0-RELEASE" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jdbc:8.5.31" />

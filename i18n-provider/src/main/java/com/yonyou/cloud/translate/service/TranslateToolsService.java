@@ -79,7 +79,7 @@ public class TranslateToolsService implements ITranslateToolsService {
                 translate.setTraditional(properties.getProperty(key));
             } else if ("en_US".equalsIgnoreCase(locales) || "en_UK".equalsIgnoreCase(locales) || "en".equalsIgnoreCase(locales)) {
                 translate.setEnglish(properties.getProperty(key));
-            } else if ("fr_TW".equalsIgnoreCase(locales) || "fr".equalsIgnoreCase(locales)) {
+            } else if ("fr_FR".equalsIgnoreCase(locales) || "fr".equalsIgnoreCase(locales)) {
                 translate.setFrench(properties.getProperty(key));
             } else {
                 translate.setReserve1(properties.getProperty(key));
@@ -93,6 +93,19 @@ public class TranslateToolsService implements ITranslateToolsService {
         this.translateService.saveBatch(listData);
 
         logger.info("执行资源写入更新结束！");
+
+        return true;
+
+    }
+
+    @Override
+    public Boolean saveTranslate(List<Translate> list) throws Exception {
+
+        logger.info("开始执行资源写入");
+
+        this.translateService.saveBatch(list);
+
+        logger.info("执行资源写入结束");
 
         return true;
 
