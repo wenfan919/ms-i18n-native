@@ -1,23 +1,20 @@
 package com.yonyou.cloud.translate.service;
 
-import com.yonyou.iuap.baseservice.entity.Model;
-import com.yonyou.iuap.baseservice.intg.service.GenericIntegrateService;
-import com.yonyou.iuap.baseservice.intg.support.ServiceFeature;
 import com.yonyou.cloud.translate.dao.TranslateMapper;
 import com.yonyou.cloud.translate.entity.Translate;
-
-import com.yonyou.iuap.mvc.type.SearchParams;
+import com.yonyou.iuap.baseservice.intg.service.GenericIntegrateService;
+import com.yonyou.iuap.baseservice.intg.support.ServiceFeature;
+import com.yonyou.iuap.baseservice.ref.service.RefCommonService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yonyou.iuap.baseservice.ref.service.RefCommonService;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import static com.yonyou.iuap.baseservice.intg.support.ServiceFeature.*;
+import static com.yonyou.iuap.baseservice.intg.support.ServiceFeature.REFERENCE;
 
 
 /**
@@ -26,6 +23,8 @@ import static com.yonyou.iuap.baseservice.intg.support.ServiceFeature.*;
 @Service
 public class TranslateService extends GenericIntegrateService<Translate> {
 
+
+    private static final Logger logger = LoggerFactory.getLogger(TranslateService.class);
 
     private TranslateMapper translateMapper;
 
@@ -52,24 +51,14 @@ public class TranslateService extends GenericIntegrateService<Translate> {
 
         List<Translate> listData = new ArrayList<Translate>();
         for (String key : properties.stringPropertyNames()) {
-            listData.add(this.findUnique("propertyCode", key));
+            try {
+                listData.add(this.findUnique("propertyCode", key));
+            } catch (Exception e) {
+                logger.info("获取写入的资源异常，code值为：" + key + "，异常原因：" + e);
+            }
         }
         return listData;
     }
-
-
-//    public T findUnique(String name, Object value) {
-//        SearchParams searchParams = new SearchParams();
-//        searchParams.addCondition(name, value);
-//        searchParams = this.prepareFeatSearchParam(searchParams);
-//        List<T> listData = super.queryList(searchParams.getSearchMap());
-//        listData = this.fillListFeatAfterQuery(listData);
-//        if (listData != null && listData.size() == 1) {
-//            return (Model)listData.get(0);
-//        } else {
-//            throw new RuntimeException("检索数据不唯一, " + name + ":" + value);
-//        }
-//    }
 
 
     /**

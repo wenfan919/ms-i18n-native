@@ -34,6 +34,7 @@ public class TranslateToolsService implements ITranslateToolsService {
     @Override
     public Boolean saveTranslate(Properties properties) throws Exception {
 
+        logger.info("开始执行资源写入");
 
         List<Translate> listData = new ArrayList<Translate>();
         Translate translate = null;
@@ -47,6 +48,8 @@ public class TranslateToolsService implements ITranslateToolsService {
         }
 
         this.translateService.saveBatch(listData);
+
+        logger.info("执行资源写入结束");
 
         return true;
     }
@@ -62,8 +65,9 @@ public class TranslateToolsService implements ITranslateToolsService {
     @Override
     public Boolean updateTranslate(Properties properties, String locales) throws Exception {
 
-        List<Translate> listData = this.getList(properties);
+        logger.info("开始执行资源更新！");
 
+        List<Translate> listData = this.getList(properties);
 
         for(Translate translate : listData){
 
@@ -87,6 +91,8 @@ public class TranslateToolsService implements ITranslateToolsService {
         }
 
         this.translateService.saveBatch(listData);
+
+        logger.info("执行资源写入更新结束！");
 
         return true;
 
