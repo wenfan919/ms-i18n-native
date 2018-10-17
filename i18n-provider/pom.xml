@@ -30,12 +30,19 @@
 			<version>${project.version}</version>
 		</dependency>
 
+		<!--<dependency>-->
+			<!--<groupId>com.yonyou.cloud.i18n</groupId>-->
+			<!--<artifactId>i18n-entity</artifactId>-->
+			<!--<version>${project.version}</version>-->
+		<!--</dependency>-->
+
 		<dependency>
 			<groupId>com.yonyou.cloud.i18n</groupId>
-			<artifactId>i18n-entity</artifactId>
+			<artifactId>i18n-tools</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
+
 		<!-- RPC -->
 		<dependency>
 			<groupId>com.yonyou.cloud.middleware</groupId>

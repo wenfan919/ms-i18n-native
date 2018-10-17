@@ -3,14 +3,15 @@ package com.yonyou.cloud.translate.service;
 import com.yonyou.cloud.i18n.service.I18nToolsService;
 import com.yonyou.cloud.i18n.service.ITranslateToolsService;
 import com.yonyou.cloud.translate.entity.Translate;
+import com.yonyou.i18n.utils.Helper;
+import com.yonyou.i18n.utils.StringUtils;
+import com.yonyou.i18n.utils.TranslateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * spring-boot工程示例，服务具体实现，统计功能
@@ -55,7 +56,7 @@ public class TranslateToolsService implements ITranslateToolsService {
     }
 
 
-//    @Override
+    //    @Override
     public List<Translate> getList(Properties properties) throws Exception {
 
         return this.translateService.findByCode(properties);
@@ -69,7 +70,7 @@ public class TranslateToolsService implements ITranslateToolsService {
 
         List<Translate> listData = this.getList(properties);
 
-        for(Translate translate : listData){
+        for (Translate translate : listData) {
 
             String key = translate.getPropertyCode();
 
@@ -99,15 +100,62 @@ public class TranslateToolsService implements ITranslateToolsService {
     }
 
     @Override
-    public Boolean saveTranslate(List<Translate> list) throws Exception {
+    public Boolean saveTranslate(Properties properties, Map<String, String> map) throws Exception {
 
-        logger.info("开始执行资源写入");
+        logger.info("开始执行资源的多语种解析并存入数据库！");
 
-        this.translateService.saveBatch(list);
+        Iterator<Map.Entry<String, String>> mlrts = null;
+        List<Translate> listData = new ArrayList<Translate>();
+        Translate translate = null;
 
-        logger.info("执行资源写入结束");
+
+        for (String key : properties.stringPropertyNames()) {
+
+            translate = new Translate();
+            translate.setPropertyCode(key);
+//            translate.setChinese(properties.getProperty(key));
+
+            mlrts = map.entrySet().iterator();
+            while (mlrts.hasNext()) {
+                Map.Entry<String, String> mlrt = mlrts.next();
+                String locales = mlrt.getKey();
+
+                if (locales == null || "".equals(locales) || "zh_CN".equalsIgnoreCase(locales) || "cn".equalsIgnoreCase(locales)) {
+                    translate.setChinese(TranslateUtils.transByLocales(Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(properties.getProperty(key))), locales));
+                } else if ("zh_TW".equalsIgnoreCase(locales) || "tw".equalsIgnoreCase(locales)) {
+                    translate.setTraditional(TranslateUtils.transByLocales(Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(properties.getProperty(key))), locales));
+                } else if ("en_US".equalsIgnoreCase(locales) || "en_UK".equalsIgnoreCase(locales) || "en".equalsIgnoreCase(locales)) {
+                    translate.setEnglish(TranslateUtils.transByLocales(Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(properties.getProperty(key))), locales));
+                } else if ("fr_FR".equalsIgnoreCase(locales) || "fr".equalsIgnoreCase(locales)) {
+                    translate.setFrench(TranslateUtils.transByLocales(Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(properties.getProperty(key))), locales));
+                } else if (translate.getReserve1() == null || "".equals(translate.getReserve1())) {
+                    translate.setReserve1(TranslateUtils.transByLocales(Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(properties.getProperty(key))), locales));
+                } else {
+                    translate.setReserve2(TranslateUtils.transByLocales(Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(properties.getProperty(key))), locales));
+                }
+            }
+
+            listData.add(translate);
+        }
+
+        this.translateService.saveBatch(listData);
+
+        logger.info("执行资源写入数据库完成！");
 
         return true;
 
     }
+
+//    @Override
+//    public Boolean saveTranslate(List<Translate> list) throws Exception {
+//
+//        logger.info("开始执行资源写入");
+//
+//        this.translateService.saveBatch(list);
+//
+//        logger.info("执行资源写入结束");
+//
+//        return true;
+//
+//    }
 }

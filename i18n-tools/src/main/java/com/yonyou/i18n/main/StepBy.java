@@ -29,8 +29,8 @@ public class StepBy {
     private List<PageNode> pageNodes = null;
 
     // 获取写入的语种类别
-    public Iterator<Map.Entry<String, String>> getMlrts(){
-         return StringUtils.getResourceFileList(ConfigUtils.getPropertyValue("resourcePrefix"), ConfigUtils.getPropertyValue("testMultiLangResourceType")).entrySet().iterator();
+    public Map<String, String> getMlrts(){
+         return StringUtils.getResourceFileList(ConfigUtils.getPropertyValue("resourcePrefix"), ConfigUtils.getPropertyValue("testMultiLangResourceType"));
     }
 
     // 获取运行时的抽取中文信息
@@ -39,6 +39,27 @@ public class StepBy {
     }
 
     // 获取运行时的抽取中文信息
+    public Properties getPageNodesProperties() {
+
+        Properties prop = new Properties();
+
+        // 设置属性值
+        for (PageNode pageNode : this.pageNodes) {
+            ArrayList<MLResSubstitution> rss = pageNode.getSubstitutions();
+
+            for (MLResSubstitution rs : rss) {
+                // 在写入资源文件时，去掉前后的界定符号
+                String v = rs.getValue();
+                if (v.length() <= 2) continue;
+
+                prop.setProperty(rs.getKey(), Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(v)));
+            }
+        }
+
+        return prop;
+    }
+
+    // 获取运行时的抽取中文信息（根据语种的选择信息）
     public Properties getPageNodesProperties(String locales) {
 
         Properties prop = new Properties();

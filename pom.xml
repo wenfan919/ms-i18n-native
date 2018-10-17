@@ -33,7 +33,7 @@
 
     <modules>
 
-        <module>i18n-entity</module>
+        <!--<module>i18n-entity</module>-->
 
         <module>i18n-api</module>
 

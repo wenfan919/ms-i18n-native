@@ -54,8 +54,6 @@
           <element id="library" level="project" name="Maven: com.yonyou.iuap.baseservice:iuap-pap-baseservice-asso:3.5.2-RELEASE" />
           <element id="library" level="project" name="Maven: com.yonyou.iuap.baseservice:iuap-pap-baseservice-dp:3.5.2-RELEASE" />
           <element id="library" level="project" name="Maven: com.yonyou.iuap.baseservice:iuap-pap-baseservice-i18n:3.5.2-RELEASE" />
-          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2" />
-          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.1" />
           <element id="library" level="project" name="Maven: com.yonyou.iuap.pap:eiap-plus-common:3.5.2-RELEASE" />
           <element id="library" level="project" name="Maven: com.yonyou.iuap:iuap-cache:3.1.0-RELEASE" />
           <element id="library" level="project" name="Maven: redis.clients:jedis:2.9.0" />
@@ -86,7 +84,6 @@
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-redis:2.0.6.RELEASE" />
           <element id="library" level="project" name="Maven: com.yonyou.iuap.pap.busilog:iuap-busilog-sdk:3.5.2-RELEASE" />
           <element id="library" level="project" name="Maven: com.yonyou.iuap:iuap-log:3.1.0-RELEASE" />
-          <element id="library" level="project" name="Maven: org.slf4j:log4j-over-slf4j:1.7.8" />
           <element id="library" level="project" name="Maven: org.slf4j:jul-to-slf4j:1.7.8" />
           <element id="library" level="project" name="Maven: com.googlecode.log4jdbc:log4jdbc:1.2" />
           <element id="library" level="project" name="Maven: org.codehaus.groovy:groovy-all:2.2.2" />
@@ -188,12 +185,19 @@
           <element id="library" level="project" name="Maven: com.oracle:ojdbc6:11.1.0.7.0" />
           <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.20" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:8.5.0" />
+          <element id="library" level="project" name="Maven: org.apache.ant:ant:1.8.2" />
           <element id="archive" name="i18n-api-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="i18n-api" />
           </element>
-          <element id="archive" name="i18n-entity-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="i18n-entity" />
+          <element id="archive" name="i18n-tools-1.0.0-SNAPSHOT.jar">
+            <element id="module-output" name="i18n-tools" />
           </element>
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.1" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.8" />
+          <element id="library" level="project" name="Maven: org.mozilla.intl:chardet:1.0" />
+          <element id="library" level="project" name="Maven: chineseutils:chineseutils:0.1" />
+          <element id="library" level="project" name="Maven: org.slf4j:log4j-over-slf4j:1.7.25" />
           <element id="library" level="project" name="Maven: com.yonyou.cloud.middleware:middleware:5.0.0-RELEASE" />
           <element id="library" level="project" name="Maven: com.yonyou.cloud.middleware:iris-spring-support:5.0.0-RELEASE" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jdbc:8.5.31" />
@@ -205,7 +209,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.8.RELEASE" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.1.7" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.1.7" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.20" />
           <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
           <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.3.2" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.5" />

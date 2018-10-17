@@ -1,7 +1,5 @@
 package com.yonyou.cloud.i18n.service;
 
-import com.yonyou.cloud.i18n.utils.PropertiesUtils;
-import com.yonyou.cloud.translate.entity.Translate;
 import com.yonyou.i18n.main.StepBy;
 import com.yonyou.i18n.utils.ZipUtils;
 import org.slf4j.Logger;
@@ -10,10 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 服务层： 提供国际化工具的API调用， 同时将抽取的资源写入到数据库
@@ -70,23 +64,27 @@ public class I18nToolsService implements II18nToolsService {
         /*********************资源保存完成后添加对数据库的写入操作************************/
         try {
             // 按照类型生成文件
-            Iterator<Map.Entry<String, String>> mlrts = sb.getMlrts();
-
-            List<Translate> list = new ArrayList<Translate>();
-            while (mlrts.hasNext()) {
-                Map.Entry<String, String> mlrt = mlrts.next();
-                String locales = mlrt.getKey();
-
+//            Iterator<Map.Entry<String, String>> mlrts = sb.getMlrts();
+//
+////            List<Translate> list = new ArrayList<Translate>();
+//            while (mlrts.hasNext()) {
+//                Map.Entry<String, String> mlrt = mlrts.next();
+//                String locales = mlrt.getKey();
+//
 //                if (locales == null || "".equals(locales) || "zh_CN".equalsIgnoreCase(locales) || "cn".equalsIgnoreCase(locales)) {
 //                    iTranslateToolsService.saveTranslate(sb.getPageNodesProperties(locales));
 //                } else {
 //                    iTranslateToolsService.updateTranslate(sb.getPageNodesProperties(locales), locales);
 //                }
+//
+////                PropertiesUtils.pageNodes2Entity(list, sb.getPageNodes(), locales);
+//            }
 
-                PropertiesUtils.pageNodes2Entity(list, sb.getPageNodes(), locales);
-            }
 
-            iTranslateToolsService.saveTranslate(list);
+            iTranslateToolsService.saveTranslate(sb.getPageNodesProperties(), sb.getMlrts());
+
+
+//            iTranslateToolsService.saveTranslate(list);
 
         } catch (Exception e) {
             // DO Nothing
