@@ -6,6 +6,7 @@ import com.yonyou.iuap.baseservice.attachment.entity.Attachmentable;
 import com.yonyou.iuap.baseservice.entity.AbsDrModel;
 import com.yonyou.iuap.baseservice.entity.annotation.CodingEntity;
 import com.yonyou.iuap.baseservice.support.condition.Condition;
+import com.yonyou.iuap.baseservice.support.condition.Match;
 import com.yonyou.iuap.baseservice.support.generator.GeneratedValue;
 
 import javax.persistence.Column;
@@ -59,9 +60,34 @@ public class I18n extends AbsDrModel implements Serializable, Attachmentable {
         return this.name;
     }
 
+
+    @Condition(match = Match.EQ)
+    @Column(name = "PROJECT_TYPE")
+    private String projectType;        //项目类型
+
+    public void setProjectType(String projectType) {
+        this.projectType = projectType;
+    }
+
+    public String getProjectType() {
+        return this.projectType;
+    }
+
+    @Transient
+    private String projectTypeEnumValue;   //项目类型
+
+    public void setProjectTypeEnumValue(String projectTypeEnumValue) {
+        this.projectTypeEnumValue = projectTypeEnumValue;
+    }
+
+    public String getProjectTypeEnumValue() {
+        return this.projectTypeEnumValue;
+    }
+
+
     @Condition
     @Column(name = "ATTACH_ID")
-    private String attachId;        //附件关联ID
+    private String attachId;        //最终附件下载路径//附件关联ID
 
     public String getAttachId() {
         return attachId;

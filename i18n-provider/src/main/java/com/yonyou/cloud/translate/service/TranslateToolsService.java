@@ -32,28 +32,28 @@ public class TranslateToolsService implements ITranslateToolsService {
     }
 
 
-    @Override
-    public Boolean saveTranslate(Properties properties) throws Exception {
-
-        logger.info("开始执行资源写入");
-
-        List<Translate> listData = new ArrayList<Translate>();
-        Translate translate = null;
-        for (String key : properties.stringPropertyNames()) {
-
-            translate = new Translate();
-            translate.setPropertyCode(key);
-            translate.setChinese(properties.getProperty(key));
-
-            listData.add(translate);
-        }
-
-        this.translateService.saveBatch(listData);
-
-        logger.info("执行资源写入结束");
-
-        return true;
-    }
+//    @Override
+//    public Boolean saveTranslate(Properties properties) throws Exception {
+//
+//        logger.info("开始执行资源写入");
+//
+//        List<Translate> listData = new ArrayList<Translate>();
+//        Translate translate = null;
+//        for (String key : properties.stringPropertyNames()) {
+//
+//            translate = new Translate();
+//            translate.setPropertyCode(key);
+//            translate.setChinese(properties.getProperty(key));
+//
+//            listData.add(translate);
+//        }
+//
+//        this.translateService.saveBatch(listData);
+//
+//        logger.info("执行资源写入结束");
+//
+//        return true;
+//    }
 
 
     //    @Override

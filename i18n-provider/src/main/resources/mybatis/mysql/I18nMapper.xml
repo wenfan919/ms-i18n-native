@@ -5,7 +5,7 @@
     <resultMap id="BaseResultMap" type="com.yonyou.cloud.i18n.entity.I18n">
         <id column="id" jdbcType="VARCHAR" property="id"/>
         <result column="NAME" property="name"/>
-
+        <result column="PROJECT_TYPE" property="projectType"/>
         <result column="ATTACH_ID" property="attachId"/>
 
         <result column="dr" property="dr"/>
@@ -27,7 +27,10 @@
                 and t.ID = #{condition.searchMap.id}
             </if>
             <if test="condition.searchMap.name!=null and condition.searchMap.name!='' ">
-                and t.NAME = #{condition.searchMap.name}
+                and t.NAME LIKE CONCAT( CONCAT('%', #{condition.searchMap.name}),'%')
+            </if>
+            <if test="condition.searchMap.projectType!=null and condition.searchMap.projectType!='' ">
+                and t.PROJECT_TYPE = #{condition.searchMap.projectType}
             </if>
             <if test="condition.searchMap.attachId!=null and condition.searchMap.attachId!='' ">
                 and t.ATTACH_ID = #{condition.searchMap.attachId}

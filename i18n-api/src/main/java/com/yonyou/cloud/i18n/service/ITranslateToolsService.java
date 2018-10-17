@@ -19,18 +19,18 @@ import java.util.Properties;
 @RemoteCall(AppI18nConstant.APP_I18N_PROVIDER)
 public interface ITranslateToolsService {
 
-    /**
-     * server -> provider
-     * 执行国际化工具完成后对资源的数据库保存，主要用于后续的翻译工作
-     * 异步调用。
-     *
-     * @param properties
-     * @return Boolean
-     */
-    @Async
-    @ApiOperation("执行国际化工具完成后对资源的数据库保存，主要用于后续的翻译工作")
-    public @ApiReturnValue(name = "执行状态", description = "是否执行成功")
-    Boolean saveTranslate(@ApiParam(name = "资源", required = true, description = "整体的资源列表") Properties properties) throws Exception;
+//    /**
+//     * server -> provider
+//     * 执行国际化工具完成后对资源的数据库保存，主要用于后续的翻译工作
+//     * 异步调用。
+//     *
+//     * @param properties
+//     * @return Boolean
+//     */
+//    @Async
+//    @ApiOperation("执行国际化工具完成后对资源的数据库保存，主要用于后续的翻译工作")
+//    public @ApiReturnValue(name = "执行状态", description = "是否执行成功")
+//    Boolean saveTranslate(@ApiParam(name = "资源", required = true, description = "整体的资源列表") Properties properties) throws Exception;
 
 
     /**
