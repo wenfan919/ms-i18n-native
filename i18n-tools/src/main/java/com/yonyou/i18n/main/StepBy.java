@@ -93,6 +93,17 @@ public class StepBy {
     }
 
     /**
+     * 初始化项目目录
+     * <p>
+     * 加载所有文件
+     */
+    public void init(String path, String projectType) {
+
+        this.pageNodes = (new ScanAllFiles(path, projectType)).loadNodes();
+
+    }
+
+    /**
      * 通过字符集范围进行抽取
      *
      * @param
@@ -127,7 +138,7 @@ public class StepBy {
      */
     public void replace() {
 
-        new ReplaceFile().updateFilesByReplace(pageNodes);
+        new ReplaceFile().updateFiles(pageNodes);
 
     }
 
@@ -136,27 +147,18 @@ public class StepBy {
 
 
 //        logger.info("识别文件：" + sourcePath);
-//
 //        String path = sourcePath.substring(0, sourcePath.lastIndexOf(".")) + "_" + System.currentTimeMillis();
-//
 //        String zipFile = path + ".zip";
-//
 //        path = path + "/";
-//
 //        logger.info("解压缩路径：" + path);
-
 
         String sourcePath = "/Users/yanyong/temp/iuap-pap-baseservice-develop/java.zip";
         String path = "/Users/yanyong/temp/iuap-pap-baseservice-develop";// + "_" + System.currentTimeMillis();
         String zipFile = path + ".zip";
 
-
         try {
 //            ZipUtils.unZipForFilePath(sourcePath, path);
-
-
 //        logger.info("执行完成后压缩路径：" + zipFile);
-
 
             StepBy sb = new StepBy();
 
@@ -172,14 +174,11 @@ public class StepBy {
 
 //		ZipUtils.zip(new File(zipFile), path);
 
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
 //		logger.info("执行完成后压缩路径：" + zipFile);
     }
-
 
 }

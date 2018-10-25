@@ -120,7 +120,7 @@ public class I18nController extends GenericController<I18n> {
             // 远程调用时传递过去的是绝对路径(即磁盘路径)，确保服务可以正常访问
             String path = PropertyUtil.getPropertyByKey("storeDir") + File.separator + i18n.getAttachment().get(0).getFileName();
 
-            String zipFile = this.i18nToolsService.operation(path);
+            String zipFile = this.i18nToolsService.operation(path, i18n.getProjectType());
 
             zipFile = zipFile.substring(zipFile.lastIndexOf("/") + 1);
 

@@ -1,30 +1,24 @@
-/**
- *
- */
 package com.yonyou.i18n.core;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.*;
-import java.util.Map.Entry;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonParser;
-import com.yonyou.i18n.utils.TranslateUtils;
-import org.apache.log4j.Logger;
-
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.yonyou.i18n.constants.I18nConstants;
 import com.yonyou.i18n.model.MLResSubstitution;
 import com.yonyou.i18n.model.OrderedProperties;
 import com.yonyou.i18n.model.PageNode;
 import com.yonyou.i18n.utils.ConfigUtils;
 import com.yonyou.i18n.utils.Helper;
 import com.yonyou.i18n.utils.StringUtils;
+import com.yonyou.i18n.utils.TranslateUtils;
+import org.apache.log4j.Logger;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
 
 /**
  * 读取资源文件&&写入资源文件
@@ -37,48 +31,72 @@ public class ResourcesFile {
 
     private static Logger logger = Logger.getLogger(ResourcesFile.class);
 
-    String parseProjectPath = ConfigUtils.getPropertyValue("parseProjectPath");
+    private String parseProjectPath = ConfigUtils.getPropertyValue("parseProjectPath");
 
-    String testMultiLangResourceType = ConfigUtils.getPropertyValue("testMultiLangResourceType");
+    private String projectType = ConfigUtils.getPropertyValue("projectType");
 
-    String resourcePrefix = ConfigUtils.getPropertyValue("resourcePrefix");
+    private String resourcePrefix = ConfigUtils.getPropertyValue("resourcePrefix");
 
-    String resourceFileEncoding = ConfigUtils.getPropertyValue("resourceFileEncoding");
+    private String multiLangType = ConfigUtils.getPropertyValue("multiLangType");
 
-    String resourceDirectory = ConfigUtils.getPropertyValue("resourceDirectory");
+    private String jQueryResourcePostfix = ConfigUtils.getPropertyValue("jQueryResourcePostfix");
+    private String reactResourcePostfix = ConfigUtils.getPropertyValue("reactResourcePostfix");
 
-    public ResourcesFile(){
+    private String resourceFileEncoding = ConfigUtils.getPropertyValue("resourceFileEncoding");
+
+    private String resourceDirectory = ConfigUtils.getPropertyValue("resourceDirectory");
+
+    private Map<String, String> mlrtMap = null;
+
+
+    public ResourcesFile() {
+
+        init();
+    }
+
+    /**
+     * 初始化
+     */
+    private void init() {
+
+        // 确定生成的文件类型
+        if (I18nConstants.REACT_PROJECT_TYPE.equalsIgnoreCase(this.projectType)) {
+
+            mlrtMap = StringUtils.getResourceFileList(resourcePrefix, multiLangType, reactResourcePostfix);
+        } else {
+            mlrtMap = StringUtils.getResourceFileList(resourcePrefix, multiLangType, jQueryResourcePostfix);
+        }
+
 
     }
 
     /**
      * 将抽取出来的资源写入整体资源文件中
      *
-     * @param pageNodes
+     * @param pageNodes 资源
      */
     public void writeResourceFile(List<PageNode> pageNodes) {
 
-        // 读取配置，确定生成类型的文件
-        Map<String, String> mlrtMap = StringUtils.getResourceFileList(resourcePrefix, testMultiLangResourceType);
-
-        Iterator<Entry<String, String>> mlrts = mlrtMap.entrySet().iterator();
-
         logger.info("开始写入整体资源文件！");
+
+        // 读取配置，确定生成类型的文件
+        Iterator<Entry<String, String>> mlrts = this.mlrtMap.entrySet().iterator();
+
         while (mlrts.hasNext()) {
 
             Entry<String, String> mlrt = mlrts.next();
-            String locales = mlrt.getKey();// .toUpperCase();
-//            locales = locales.length() > 2 ? locales.substring(0, 2) : locales;
-//            locales = "zh".equalsIgnoreCase(locales) ? "" : locales;
+            String locales = mlrt.getKey();
 
             File file = new File(parseProjectPath + File.separator + mlrt.getValue());
 
             logger.info("++++++整体资源文件路径为： " + file.getAbsolutePath());
 
             // 针对pageNodes生成资源文件
-            if (mlrt.getValue().toLowerCase().endsWith(".properties")) {
+            if (I18nConstants.JQUERY_PROJECT_TYPE.equalsIgnoreCase(this.projectType)) {
+
                 writePropertiesFile(file, pageNodes, locales);
-            } else if (mlrt.getValue().toLowerCase().endsWith(".json")) {
+            } else if (I18nConstants.REACT_PROJECT_TYPE.equalsIgnoreCase(this.projectType)) {
+
                 writeJsonFile(file, pageNodes, locales);
             }
         }
@@ -88,15 +106,13 @@ public class ResourcesFile {
     /**
      * 将抽取出来的资源写入单体资源文件中（分目录）
      *
-     * @param pageNodes
+     * @param pageNodes 资源
      */
     public void writeResourceFileByDirectory(List<PageNode> pageNodes) {
 
-//		Map<String, String> mlrtMap = ;
-
-        Iterator<Entry<String, String>> mlrts = null;
-
         logger.info("开始写入项目路径下的单体资源文件！");
+
+        Iterator<Entry<String, String>> mlrts;
 
         // 将资源文件放到locales目录下
         // 将资源文件放到分层的目录下
@@ -109,26 +125,24 @@ public class ResourcesFile {
                 if (!fileDirect.isDirectory()) fileDirect.mkdirs();
 
                 // 按照类型生成文件
-                mlrts = StringUtils.getResourceFileList(resourcePrefix, testMultiLangResourceType).entrySet().iterator();
+                mlrts = this.mlrtMap.entrySet().iterator();
 
                 while (mlrts.hasNext()) {
 
                     Entry<String, String> mlrt = mlrts.next();
-                    String locales = mlrt.getKey();//.toUpperCase();
-//                    locales = locales.length() > 2 ? locales.substring(0, 2) : locales;
-//                    locales = "zh".equalsIgnoreCase(locales) ? "" : locales;
+                    String locales = mlrt.getKey();
 
                     File file = new File(resourceSubDirect + File.separator + mlrt.getValue());
 
                     logger.info("------单体资源文件路径为： " + file.getAbsolutePath());
 
-                    // properties资源文件
-                    if (mlrt.getValue().toLowerCase().endsWith(".properties")) {
-                        writeSinglePropertiesFile(file, pageNode, locales);
-                        // json资源文件
-                    } else if (mlrt.getValue().toLowerCase().endsWith(".json")) {
-                        writeSingleJsonFile(file, pageNode, locales);
+                    // 针对pageNode生成资源文件
+                    if (I18nConstants.JQUERY_PROJECT_TYPE.equalsIgnoreCase(this.projectType)) {
 
+                        writeSinglePropertiesFile(file, pageNode, locales);
+                    } else if (I18nConstants.REACT_PROJECT_TYPE.equalsIgnoreCase(this.projectType)) {
+
+                        writeSingleJsonFile(file, pageNode, locales);
                     }
                 }
             }
@@ -139,9 +153,9 @@ public class ResourcesFile {
     /**
      * 将pageNode的资源以locales 的形式保持至文件中
      *
-     * @param file
-     * @param pageNodes
-     * @param locales
+     * @param file      资源文件
+     * @param pageNodes 资源数据来源
+     * @param locales   语种信息
      */
     private void writePropertiesFile(File file, List<PageNode> pageNodes, String locales) {
 
@@ -154,7 +168,7 @@ public class ResourcesFile {
             if (file.exists())
                 prop.load(new InputStreamReader(new FileInputStream(file), resourceFileEncoding));
 
-            if (!file.getParentFile().exists()){
+            if (!file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
             }
 
@@ -172,8 +186,6 @@ public class ResourcesFile {
                     prop.setProperty(rs.getKey(), TranslateUtils.transByLocales(Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(v)), locales));
                 }
             }
-
-
 
             // 保存属性值
             prop.store(output, "create the resource file");
@@ -198,9 +210,9 @@ public class ResourcesFile {
     /**
      * 将pageNode的资源以locales 的形式保持至文件中
      *
-     * @param file
-     * @param pageNode
-     * @param locales
+     * @param file     资源文件
+     * @param pageNode 资源数据来源
+     * @param locales  语种信息
      */
     private void writeSinglePropertiesFile(File file, PageNode pageNode, String locales) {
 
@@ -225,6 +237,7 @@ public class ResourcesFile {
                 if (v.length() <= 2) continue;
 
                 props.setProperty(rs.getKey(), TranslateUtils.transByLocales(Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(v)), locales));
+
             }
 
             // 保存属性值
@@ -250,9 +263,9 @@ public class ResourcesFile {
     /**
      * 将pageNode的资源以locales 的形式保持至文件中
      *
-     * @param file
-     * @param pageNodes
-     * @param locales
+     * @param file      资源文件
+     * @param pageNodes 资源数据来源
+     * @param locales   语种信息
      */
     private void writeJsonFile(File file, List<PageNode> pageNodes, String locales) {
 
@@ -302,9 +315,9 @@ public class ResourcesFile {
     /**
      * 将pageNode的资源以locales 的形式保持至文件中
      *
-     * @param file
-     * @param pageNode
-     * @param locales
+     * @param file     资源文件
+     * @param pageNode 资源数据来源
+     * @param locales  语种信息
      */
     private void writeSingleJsonFile(File file, PageNode pageNode, String locales) {
 
@@ -329,6 +342,7 @@ public class ResourcesFile {
                 if (v.length() <= 2) continue;
 
                 object.addProperty(rs.getKey(), Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(v)) + locales);
+
             }
 
             // 保存属性值
@@ -350,194 +364,9 @@ public class ResourcesFile {
         }
     }
 
-    /**
-     * 将抽取出来的资源写入资源 文件中
-     * TODO
-     * 做英文资源文件，测试用
-     *
-     * @param pageNodes
-     */
-    @Deprecated
-    public void writeEnglishResourceFile(List<PageNode> pageNodes) {
-
-        File file = new File(ConfigUtils.getPropertyValue("testENGResourcesDirectory"));
-
-        // 为了保证资源的顺序，采用LinkedHashSet存储
-        OrderedProperties prop = new OrderedProperties();
-
-//		OutputStream output = null;
-        BufferedWriter output = null;
-
-        try {
-//			 output = new FileOutputStream(file);
-            output = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), resourceFileEncoding));
-
-            // 设置属性值
-            for (PageNode pageNode : pageNodes) {
-                ArrayList<MLResSubstitution> rss = pageNode.getSubstitutions();
-                for (MLResSubstitution rs : rss) {
-                    // 在写入资源文件时，去掉前后的界定符号
-                    String v = rs.getValue();
-                    if (v.length() <= 2) continue;
-                    v = v.substring(1);
-                    v = v.substring(0, v.length() - 1);
-                    prop.setProperty(rs.getKey(), StringUtils.getStrByDeleteBoundary(v) + "EN");
-                }
-            }
-
-            // 保存属性值
-            prop.store(output, "create the resource file");
-
-        } catch (IOException io) {
-            io.printStackTrace();
-        } finally {
-            if (output != null) {
-                try {
-                    output.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-
-    /**
-     * 将抽取出来的资源写入资源 文件中
-     *
-     * @param pageNodes
-     */
-    @Deprecated
-    public void writeJsonResourceFile(List<PageNode> pageNodes) {
-
-        File file = new File(""/*testResourcesDirectory*/);
-
-        // 为了保证资源的顺序，采用LinkedHashSet存储
-        OrderedProperties prop = new OrderedProperties();
-
-//		OutputStream output = null;
-        BufferedWriter output = null;
-
-        try {
-//			 output = new FileOutputStream(file);
-            output = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), resourceFileEncoding));
-
-            // 设置属性值
-            for (PageNode pageNode : pageNodes) {
-                ArrayList<MLResSubstitution> rss = pageNode.getSubstitutions();
-                for (MLResSubstitution rs : rss) {
-                    // 在写入资源文件时，去掉前后的界定符号
-                    String v = rs.getValue();
-                    if (v.length() <= 2) continue;
-
-//					ISNConvert.string2Unicode(Helper.unwindEscapeChars(v.trim()));
-                    prop.setProperty(rs.getKey(), Helper.unwindEscapeChars(StringUtils.getStrByDeleteBoundary(v))/*v.trim()*/);
-                }
-            }
-
-            // 保存属性值
-            prop.store(output, "create the resource file");
-
-        } catch (IOException io) {
-            io.printStackTrace();
-        } finally {
-            if (output != null) {
-                try {
-                    output.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-
-    /**
-     * 将抽取出来的资源写入资源 文件中
-     * TODO
-     * 做英文资源文件，测试用
-     *
-     * @param pageNodes
-     */
-    @Deprecated
-    public void writeJsonEnglishResourceFile(List<PageNode> pageNodes) {
-
-        File file = new File(ConfigUtils.getPropertyValue("testENGResourcesDirectory"));
-
-        // 为了保证资源的顺序，采用LinkedHashSet存储
-        OrderedProperties prop = new OrderedProperties();
-
-//		OutputStream output = null;
-        BufferedWriter output = null;
-
-        try {
-//			 output = new FileOutputStream(file);
-            output = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), resourceFileEncoding));
-
-            // 设置属性值
-            for (PageNode pageNode : pageNodes) {
-                ArrayList<MLResSubstitution> rss = pageNode.getSubstitutions();
-                for (MLResSubstitution rs : rss) {
-                    // 在写入资源文件时，去掉前后的界定符号
-                    String v = rs.getValue();
-                    if (v.length() <= 2) continue;
-                    v = v.substring(1);
-                    v = v.substring(0, v.length() - 1);
-                    prop.setProperty(rs.getKey(), StringUtils.getStrByDeleteBoundary(v) + "EN");
-                }
-            }
-
-            // 保存属性值
-            prop.store(output, "create the resource file");
-
-        } catch (IOException io) {
-            io.printStackTrace();
-        } finally {
-            if (output != null) {
-                try {
-                    output.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-
-    /**
-     * 读取资源文件
-     */
-    @Deprecated
-    public void readResourceFile() {
-
-        File file = new File(""/*testResourcesDirectory*/);
-
-        Properties props = null;
-
-        try {
-//			InputStream in = ConfigUtils.class.getResourceAsStream("/messages.properties");
-
-            InputStreamReader read = new InputStreamReader(new FileInputStream(file), "GBK");// 考虑到编码格式
-
-            props = new Properties();
-
-            props.load(read);
-
-
-        } catch (IOException e) {
-        }
-
-    }
 
     public static void main(String[] args) {
 
-        File file = new File("C:\\Users\\wenfa\\Desktop\\workbench\\aabc\\dbcde\\ab.cc");
-        file.mkdirs();
-
-//			String url1 = ResourcesFile.class.getResource("").getPath().replaceAll("%20", " ");
-//          String path = url1.substring(0, url1.indexOf("WEB-INF")) + "WEB-INF/i18n/logs.properties";
-//			String path=Thread.currentThread().getContextClassLoader().getResource("").toString();
-//			URL url = ResourcesFile.class.getClassLoader().getResource("");
 
     }
 

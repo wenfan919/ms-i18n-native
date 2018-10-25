@@ -7,6 +7,7 @@ import com.yonyou.cloud.middleware.rpc.RemoteCall;
 import com.yonyou.cloud.mwclient.servmeta.annotation.ApiParam;
 import com.yonyou.cloud.mwclient.servmeta.annotation.ApiReturnValue;
 
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Properties;
 
@@ -89,6 +90,18 @@ public interface ITranslateToolsService {
     Boolean saveTranslate(@ApiParam(name = "资源", required = true, description = "整体的资源列表") Properties properties,
                           @ApiParam(name = "资源语种", required = true, description = "语种列表") Map<String, String> map) throws Exception;
 
+
+    /**
+     * server -> provider
+     * 获取资源数据表中的所有的code并解析成key值的前缀
+     * 异步调用。
+     *
+     * @return HashSet<String>
+     */
+//    @Async
+    @ApiOperation("获取数据表存储的所有的key的前缀")
+    public @ApiReturnValue(name = "keyPrefixs前缀", description = "所有的code并解析成key值的前缀")
+    HashSet<String> getCode() throws Exception;
 
 }
 

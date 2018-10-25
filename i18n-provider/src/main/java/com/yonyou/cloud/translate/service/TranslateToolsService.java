@@ -146,6 +146,27 @@ public class TranslateToolsService implements ITranslateToolsService {
 
     }
 
+    @Override
+    public HashSet<String> getCode() throws Exception {
+
+        HashSet<String> keyPrefix = new HashSet<String>();
+
+        List<Translate> listData = this.translateService.findAll();
+
+        for (Translate translate : listData) {
+
+            String key = translate.getPropertyCode();
+
+            if (key.indexOf(".") >= 0) {
+                key = key.substring(0, key.lastIndexOf("."));
+
+                keyPrefix.add(key);
+            }
+        }
+
+        return keyPrefix;
+    }
+
 //    @Override
 //    public Boolean saveTranslate(List<Translate> list) throws Exception {
 //

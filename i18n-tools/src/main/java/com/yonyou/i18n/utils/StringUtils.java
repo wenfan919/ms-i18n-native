@@ -130,21 +130,49 @@ public class StringUtils {
 	 * 解析最后生成的文件：properties、json格式等
 	 * 
 	 * @param resourcePrefix
+	 * @param multiLangType
+	 * @return
+	 */
+	public static Map<String, String> getResourceFileList(String resourcePrefix, String multiLangType, String resourcePostfix){
+		
+		Map<String, String> fileMap = new HashMap<String, String>();
+		
+		if(multiLangType != null && !"".equals(multiLangType)){
+			
+			String[] mlrts = multiLangType.split(",");
+			
+			for(String mlrt : mlrts){
+				if(mlrt!=null && !"".equals(mlrt.trim())){
+
+					fileMap.put(mlrt, resourcePrefix + "_" + mlrt+"."+resourcePostfix);
+
+				}
+			}
+		}
+		
+		return fileMap;
+	}
+
+
+	/**
+	 * 解析最后生成的文件：properties、json格式等
+	 *
+	 * @param resourcePrefix
 	 * @param testMultiLangResourceType
 	 * @return
 	 */
 	public static Map<String, String> getResourceFileList(String resourcePrefix, String testMultiLangResourceType){
-		
+
 		Map<String, String> fileMap = new HashMap<String, String>();
-		
+
 		if(testMultiLangResourceType != null && !"".equals(testMultiLangResourceType)){
-			
+
 			String[] mlrts = testMultiLangResourceType.split(",");
-			
+
 			for(String mlrt : mlrts){
 				if(mlrt!=null && !"".equals(mlrt.trim())){
 					String[] lts = mlrt.split("\\|");
-					
+
 					if(lts.length == 2){
 						fileMap.put(lts[0], resourcePrefix + "_" + lts[0]+"."+lts[1]);
 					}else if(lts.length == 1){
@@ -155,7 +183,7 @@ public class StringUtils {
 				}
 			}
 		}
-		
+
 		return fileMap;
 	}
 	

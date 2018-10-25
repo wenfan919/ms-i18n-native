@@ -31,4 +31,19 @@ public class I18nToolsService {
         return callback;
     }
 
+    /**
+     * @param path
+     * @return
+     * @throws Exception
+     */
+    public String operation(String path, String projectType) throws Exception {
+
+
+        String callback = this.i18nToolsService.operateTools(path, projectType);
+
+        logger.info("项目回写路径为：" + callback);
+
+        return callback;
+    }
+
 }
